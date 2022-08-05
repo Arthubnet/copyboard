@@ -1,0 +1,16 @@
+.filter-bar {
+  button {
+    background-color: transparent;
+    border: 1px var(--theme-color) solid;
+    padding: 10px 25px;
+    text-transform: uppercase;
+    margin-right: 5px;
+    cursor: pointer;
+    &:hover {
+      background-color: var(--theme-color);
+    }
+    &.active {
+      background: #c51d6f;
+    }
+  }
+}

@@ -1,23 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import "./app.styles.scss";
+import Bands from "./Layouts/Bands";
+import Hero from "./Layouts/Hero";
+import MoreNews from "./Layouts/MoreNews";
+import Music from "./Layouts/Music";
+import Navbar from "./Components/Navbar";
+import News from "./Layouts/News";
+import Video from "./Layouts/Video";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navbar />
+      <Hero />
+      <News />
+      <Music />
+      <Video />
+      <Bands />
+      <MoreNews />
     </div>
   );
 }

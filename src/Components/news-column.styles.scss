@@ -1,0 +1,9 @@
+.news__column {
+  width: 32%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  &.out {
+    opacity: 0;
+  }
+}
