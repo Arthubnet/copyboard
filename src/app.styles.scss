@@ -20,6 +20,12 @@ body {
 :root {
   --theme-color: #c51d6f;
 }
+/* Flex */
+@mixin flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 h1 {
   font-size: 3rem;

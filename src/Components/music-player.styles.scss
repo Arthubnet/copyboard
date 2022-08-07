@@ -1,3 +1,5 @@
+@import "../app.styles.scss";
+
 .player {
   position: fixed;
   bottom: 0;
@@ -26,7 +28,7 @@
     .closeBtn {
       width: 25px;
       height: 25px;
-      background-color: $theme-color;
+      background-color: var(--theme-color);
       position: absolute;
       cursor: pointer;
       left: -4%;
@@ -106,23 +108,37 @@
       width: 100%;
       @include flex;
       gap: 10px;
-      .progress {
+      .customSlider {
         width: 85%;
-        background: #333333;
-        border-radius: 5px;
         cursor: pointer;
+      }
+      .customSlider-track {
+        background: #333;
         height: 4px;
+        border-radius: 5px;
+      }
+      .customSlider-track.customSlider-track-0 {
+        /* color of the track before the thumb */
+        background: #fff;
+      }
+      .customSlider-track:hover .customSlider-track {
+        background: red;
+      }
+      .customSlider-thumb {
+        cursor: pointer;
+        /*color for the thumb */
+        background: #fff;
+        /* shape of the thumb: circle */
+        width: 13px;
+        height: 13px;
+        border-radius: 100%;
+        /* remove default outline when selected */
+        outline: none;
+        top: -5px;
+      }
 
-        &-inner {
-          width: 0;
-          background: #fff;
-          border-radius: 5px;
-          height: 100%;
-          transition: width 0.1s linear;
-        }
-        &:hover .progress-inner {
-          background: $theme-color;
-        }
+      .customSlider-thumb:hover {
+        box-shadow: 0 0 0 8px var(--main-color-hover);
       }
     }
     span {
@@ -164,7 +180,7 @@
         transition: width 0.1s linear;
       }
       &:hover .progress-volume__inner {
-        background: $theme-color;
+        background: var(--theme-color);
       }
     }
   }

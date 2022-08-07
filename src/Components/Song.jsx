@@ -1,38 +1,43 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import "./song.styles.scss";
+let animationBars = [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}];
 
-function Song({ song, audioEl }) {
-  console.log(audioEl);
+function Song({ song, specificSong, isPlaying, count }) {
+  let onclick = () => {
+    specificSong(song.id);
+  };
+
   return (
     <div className="frame">
-      <div class="song">
-        <div class="song-number">
+      <div onClick={onclick} className="song">
+        <div className="song-number">
           <p>{song.id}</p>
         </div>
-        <div onClick={() => audioEl.play()} class="song-play-btn pause">
+        <div
+          className={`${
+            isPlaying && song.id === count ? null : "pause"
+          } song-play-btn`}
+        >
           <span></span>
           <span></span>
         </div>
-        <div class="song-name">
+        <div className="song-name">
           <h3>{song.name}</h3>
         </div>
-        <div class="song-artist">
+        <div className="song-artist">
           <p>{song.artist}</p>
         </div>
-        <div class="song-equalizer active">
-          <div class="bar"></div>
-          <div class="bar"></div>
-          <div class="bar"></div>
-          <div class="bar"></div>
-          <div class="bar"></div>
-          <div class="bar"></div>
-          <div class="bar"></div>
-          <div class="bar"></div>
-          <div class="bar"></div>
-          <div class="bar"></div>
+        <div className="song-equalizer active">
+          {animationBars.map(() => (
+            <div
+              className={`${
+                isPlaying && song.id === count ? "active" : ""
+              } bar`}
+            ></div>
+          ))}
         </div>
-        <div class="song-length">
+        <div className="song-length">
           <p>{song.duration}</p>
         </div>
       </div>
