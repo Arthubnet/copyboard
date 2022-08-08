@@ -69,8 +69,8 @@ function MusicPlayer({
             <span>{calculateDuration(currentTime)}</span>
             <ReactSlider
               min={0}
-              max={duration ? duration : null}
-              value={currentTime}
+              max={duration ? parseInt(duration) : null}
+              value={parseInt(currentTime)}
               onChange={(value) => onRewind(value)}
               className="customSlider"
               trackClassName="customSlider-track"

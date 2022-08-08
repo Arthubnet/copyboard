@@ -2,7 +2,12 @@ import React, { useState, useRef, useEffect } from "react";
 
 import "./music.styles.scss";
 
-import song from "../assets/songs/brat.mp3";
+/* Songs */
+import brat from "../assets/songs/brat.mp3";
+import krasivo from "../assets/songs/krasivo.mp3";
+import marley from "../assets/songs/marley.mp3";
+import norwise from "../assets/songs/nordwise.mp3";
+import zdorovo from "../assets/songs/zdorovo.mp3";
 
 /* Components */
 import Wrapper from "../Components/Wrapper";
@@ -19,13 +24,13 @@ export function calculateDuration(songSeconds) {
   return `${returnedMinutes}:${returnedSeconds}`;
 }
 
-function Music() {
+function Music({}) {
   let [songs, setSong] = useState([
     {},
     {
       id: 1,
       name: "Здорово",
-      link: `https://download1325.mediafire.com/nygcq2myt4ag/3vg72wolo25p0hk/zdorovo.mp3`,
+      link: zdorovo,
       path: "https://ytop1.com/Thankyou?token=U2FsdGVkX18sXfdWhtNOmakF5iJ6VzfxvEsrqZQgJvY1XXbDlnGuxWJjmCOigCZGGu5UINvnvjPUO8GprfSFEXFnFD5Sf9DJwJ%2fCxCvREgFKvFLbx%2fTlswqx%2bzJRRTkDJneJI8OyrJIf7Wn%2bnHjRfOwepSvu%2brAd0tdOwxtmPXwKfvcEiOyQmG4ZEDOgy8ox&s=youtube&id=&h=844019832527452011",
       artist: "Носков",
       duration: "4:17",
@@ -34,7 +39,7 @@ function Music() {
     {
       id: 2,
       name: "Брат",
-      link: `https://download1351.mediafire.com/ag891yxxpd0g/d15kvkqvsvogvwz/brat.mp3`,
+      link: brat,
       path: "https://ytop1.com/Thankyou?token=U2FsdGVkX19NqLeNPgTA7VqZ9Zb6B4Jj7Ose6gMmxT39QGLslmc7uN0Ri%2bGTkAXfeJfJK%2fQaBb9OS5cVmNWnoVSSlDVtOnNe8826QMrd0Ht9ONkNSwHtDqIqUgnBtffQ&s=youtube&id=&h=844019832527452031",
       artist: "LeanJe",
       duration: "3:41",
@@ -45,7 +50,7 @@ function Music() {
     {
       id: 3,
       name: "Evolve II",
-      link: `https://download849.mediafire.com/68u85pirelrg/e7n7m113re7slhg/nordwise.mp3`,
+      link: norwise,
       path: "https://ytop1.com/Thankyou?token=U2FsdGVkX1%2bufA1IpiyHwJ7sBNzf%2fDQ70cq5GsIBDeH4TXbiwCqwQpr9SRkUa9cFqf1KR5rWifOWezv5lqueEyuNeyMb%2brzYNI0hc%2b9zRDxLFl3ceHJSJKLzlZ7RssI6gAXjlSo2fS7yDohOC%2fqQZmSr7fdKIsn8pxBHRFtX0sRPGXhLlyfwe36IT5ktiulG&s=youtube&id=&h=844019832527452015",
       artist: "Nordwise",
       duration: "3:50",
@@ -55,7 +60,7 @@ function Music() {
     {
       id: 4,
       name: "Sun Is Shining",
-      link: `https://download1319.mediafire.com/z28srjperwag/xnkfqou4xuijqjy/marley.mp3`,
+      link: marley,
       path: "https://ytop1.com/Thankyou?token=U2FsdGVkX1%2be59DOjqaIapFZEjSeohGerdaYt38SaH1DjVnkSH2c0rflU6Yc%2bckFCOE%2fG3J8YVtjxALu20DetPijzxTD3ztECBOeVkeibcRiP67mSkZY0q99qjEAJmfqdSmcAbEHe1kgFEEayBmKcyFnJKoGIHbLZAGmIibVUXo%3d&s=youtube&id=&h=844019832527451710",
       artist: "Bob Marley",
       duration: "7:32",
@@ -65,7 +70,7 @@ function Music() {
     {
       id: 5,
       name: "Красота",
-      link: `https://download1492.mediafire.com/a2ov2375zhog/1ymxyz4gw2a16kb/krasivo.mp3`,
+      link: krasivo,
       path: "https://ytop1.com/Thankyou?token=U2FsdGVkX19vqdf%2fCyVOD1nhGP7uMyPuBHOYOrPhOHt3aRw7WXaXvLHMXruiazfkdf2OIY4gINKK3Uji%2f7gOmPcdmG1s529ME3Yz%2f6THy3G4PfY5rK%2f8y7P%2b303UXHC9&s=youtube&id=&h=844019832527451705",
       artist: "Чайковська",
       duration: "4:17",
@@ -77,14 +82,9 @@ function Music() {
   let [isPlaying, setIsPlaying] = useState(false);
   let [currentTime, setCurrentTime] = useState(() => calculateDuration(0));
   let [duration, setDuration] = useState(() => calculateDuration(0));
-  let [playerActive, setplayerActive] = useState(false);
+  let [playerActive, setPlayerActive] = useState(false);
 
   let player = useRef();
-  /*   console.log("app"); */
-
-  useEffect(() => {
-    console.dir(player.current);
-  }, []);
 
   let togglePlay = () => {
     if (!isPlaying) {
@@ -136,7 +136,7 @@ function Music() {
       setIsPlaying(true);
       if (id !== count) {
         setCount(id);
-        setplayerActive(true);
+        setPlayerActive(true);
       } else if (id === count) {
         setIsPlaying(true);
         player.current.play();
@@ -157,11 +157,11 @@ function Music() {
   };
 
   let onClosePlayer = () => {
-    setplayerActive(false);
+    setPlayerActive(false);
   };
 
   return (
-    <Wrapper id="music" title="Music">
+    <Wrapper id="music" title="Top 5 Songs">
       <audio
         type="audio/mpeg"
         ref={player}

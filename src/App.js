@@ -1,4 +1,7 @@
+import { useState, useContext } from "react";
 import "./app.styles.scss";
+
+/* Components */
 import Bands from "./Layouts/Bands";
 import Hero from "./Layouts/Hero";
 import MoreNews from "./Layouts/MoreNews";

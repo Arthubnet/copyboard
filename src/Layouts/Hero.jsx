@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 import "./hero.styles.scss";
 import HeroSlide from "../Components/HeroSlide";
+/* width hook */
 import useWindowDimensions from "../Hooks/useWindowDimensions";
 /* Framer Motion */
 import { motion } from "framer-motion";

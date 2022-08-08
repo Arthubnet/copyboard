@@ -29,8 +29,9 @@ function Song({ song, specificSong, isPlaying, count }) {
           <p>{song.artist}</p>
         </div>
         <div className="song-equalizer active">
-          {animationBars.map(() => (
+          {animationBars.map((a, i) => (
             <div
+              key={i}
               className={`${
                 isPlaying && song.id === count ? "active" : ""
               } bar`}
