@@ -15,7 +15,7 @@ import sade from "../assets/video/sade.mp4";
 /* Framer Motion */
 import { motion } from "framer-motion";
 
-function Video() {
+function Video({ count, setCount }) {
   let { width } = useWindowDimensions();
   let [videos, setVideos] = useState([
     {
@@ -44,7 +44,6 @@ function Video() {
     },
   ]);
   let [carouselWidth, setCarouselWidth] = useState();
-  let [count, setCount] = useState(0);
   let [isPlaying, setIsPlaying] = useState(false);
   let carousel = useRef();
 

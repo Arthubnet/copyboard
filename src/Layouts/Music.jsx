@@ -24,7 +24,7 @@ export function calculateDuration(songSeconds) {
   return `${returnedMinutes}:${returnedSeconds}`;
 }
 
-function Music({}) {
+function Music({ count, setCount }) {
   let [songs, setSong] = useState([
     {},
     {
@@ -78,7 +78,6 @@ function Music({}) {
         "https://lastfm.freetls.fastly.net/i/u/avatar170s/cf42b9f1ee9a203818a64357ba5b2b1c",
     },
   ]);
-  let [count, setCount] = useState(null);
   let [isPlaying, setIsPlaying] = useState(false);
   let [currentTime, setCurrentTime] = useState(() => calculateDuration(0));
   let [duration, setDuration] = useState(() => calculateDuration(0));

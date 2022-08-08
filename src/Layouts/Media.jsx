@@ -4,12 +4,13 @@ import Music from "./Music";
 import Video from "./Video";
 
 const Media = () => {
-  let [musicCount, setMusicCount] = useState();
-  let [videoCount, setVideoCount] = useState();
+  let [musicCount, setMusicCount] = useState(null);
+  let [videoCount, setVideoCount] = useState(0);
+  console.log("media:", musicCount);
   return (
     <div>
-      <Music />
-      <Video />
+      <Music count={musicCount} setCount={setMusicCount} />
+      <Video count={videoCount} setCount={setVideoCount} />
     </div>
   );
 };

@@ -9,6 +9,7 @@ import Music from "./Layouts/Music";
 import Navbar from "./Components/Navbar";
 import News from "./Layouts/News";
 import Video from "./Layouts/Video";
+import Media from "./Layouts/Media";
 
 function App() {
   return (
@@ -16,8 +17,7 @@ function App() {
       <Navbar />
       <Hero />
       <News />
-      <Music />
-      <Video />
+      <Media />
       <Bands />
       <MoreNews />
     </div>
