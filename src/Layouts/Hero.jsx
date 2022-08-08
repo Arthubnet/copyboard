@@ -2,6 +2,10 @@ import React, { useState } from "react";
 
 import "./hero.styles.scss";
 import HeroSlide from "../Components/HeroSlide";
+
+/* Imgs */
+import heroTwo from "../assets/img/heroTwo.jpg";
+import heroThree from "../assets/img/heroThree.jpg";
 /* width hook */
 import useWindowDimensions from "../Hooks/useWindowDimensions";
 /* Framer Motion */
@@ -13,23 +17,24 @@ function Hero() {
   let heroData = [
     {
       imgUrl:
-        "https://assets.teenvogue.com/photos/6228d78324ee50e5eeee2500/16:9/w_2560%2Cc_limit/1377055201",
+        "https://mloz5fexx1sj.i.optimole.com/gmV1hb0-nqBoy2En/w:auto/h:auto/q:100/https://gal-dem.com/wp-content/uploads/2022/01/Untitled-design-25.png",
       date: "07/23/2022",
       author: "By Brandon Ridish",
-      title: `Woman of the year <span>Olivia Rodrigo</span> is writing new music`,
+      title: `The dilemma of <span>British Vogue's</span> cover and Black representation`,
       footer: `With the biggest hit of 2021, the singer songwriter was just getting
         started.`,
     },
+
     {
       imgUrl:
-        "https://www.telekom.com/resource/image/494146/landscape_ratio4x3/1296/972/fbd84e9fc30a077d92048d7f26f88d7a/Km/bi-170510-gorillaz-en.jpg",
+        "https://images.ctfassets.net/hbmwn5pbkdff/60hCMrPi5eOkFoewrfMBc7/1476e756867c366848d441a4646af070/CROPPED_BRAND_VOGUE_MEXICO2.jpg",
       date: "07/23/2022",
       author: "By Brandon Ridish",
-      title: `<span>Gorillaz</span> release surprise new EP 'Meanwhile',
-              celebrating Notting Hill Carnival`,
+      title: `Guess Who's On the Cover of the <span>Vogue Paris</span> 'Top Models' Special Issue?`,
       footer: `With the biggest hit of 2021, the singer songwriter was just getting
         started.`,
     },
+
     {
       imgUrl:
         "https://media.npr.org/assets/img/2021/11/10/will-smith-new-headshot-credit-lorenzo-agius_wide-fce30e30fbf83a2c586848fa991d1d61ab768cd2.jpg",

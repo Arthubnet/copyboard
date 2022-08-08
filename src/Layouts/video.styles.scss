@@ -1,16 +1,59 @@
-.video__carousel {
+.video {
   width: 100%;
-  height: 100%;
-  overflow: hidden;
-  &__inner {
-    display: inline-flex;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+  h1 {
+    position: absolute;
+    top: 0px;
+    left: 50px;
   }
 }
-.arrows {
-  margin: 0 auto;
-  .arrow {
+
+.video__image-container {
+  position: relative;
+  width: 80%;
+  overflow: hidden;
+  cursor: pointer;
+  z-index: 1;
+  .animated-block {
+    position: absolute;
+    height: 100%;
+    right: 0;
+    top: 0;
+    background: black;
+    z-index: 2;
+  }
+  img {
+    width: 100%;
+    height: auto;
+    filter: grayscale(1);
+    transition: filter 0.3s;
     &:hover {
-      background: var(--theme-color);
+      filter: grayscale(0);
     }
+  }
+  .play-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    .react-icons {
+      width: 50px;
+      height: 50px;
+    }
+  }
+  &:hover .play-btn {
+    background-color: rgb(201, 59, 110);
   }
 }

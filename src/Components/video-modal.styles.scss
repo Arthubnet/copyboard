@@ -1,0 +1,33 @@
+.modal-close {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background: transparent;
+  z-index: 11;
+}
+.modal {
+  position: fixed;
+  height: 100vh;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  background-color: black;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &__inner {
+    width: 80%;
+    height: auto;
+    overflow-y: hidden;
+    position: relative;
+    z-index: 12;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    video {
+      width: 100%;
+      height: auto;
+    }
+  }
+}

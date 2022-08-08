@@ -4,13 +4,9 @@ import "./song.styles.scss";
 let animationBars = [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}];
 
 function Song({ song, specificSong, isPlaying, count }) {
-  let onclick = () => {
-    specificSong(song.id);
-  };
-
   return (
     <div className="frame">
-      <div onClick={onclick} className="song">
+      <div onClick={() => specificSong(song.id)} className="song">
         <div className="song-number">
           <p>{song.id}</p>
         </div>

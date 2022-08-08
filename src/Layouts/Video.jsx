@@ -1,8 +1,10 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState } from "react";
 
 import "./video.styles.scss";
+/* Components */
 import Wrapper from "../Components/Wrapper";
-import VideoItem from "../Components/VideoItem";
+import VideoModal from "./../Components/VideoModal";
+
 /* width hook */
 import useWindowDimensions from "../Hooks/useWindowDimensions";
 
@@ -12,10 +14,13 @@ import okean from "../assets/video/okean.mp4";
 import ridni from "../assets/video/ridni.mp4";
 import sade from "../assets/video/sade.mp4";
 
+/* Icon */
+import { CgPlayButton } from "react-icons/cg";
+
 /* Framer Motion */
 import { motion } from "framer-motion";
 
-function Video({ count, setCount }) {
+function Video({ player, setMusicPlayerActive }) {
   let { width } = useWindowDimensions();
   let [videos, setVideos] = useState([
     {
@@ -43,49 +48,51 @@ function Video({ count, setCount }) {
       alt: "sade",
     },
   ]);
-  let [carouselWidth, setCarouselWidth] = useState();
-  let [isPlaying, setIsPlaying] = useState(false);
-  let carousel = useRef();
+  let [modalAcive, modalAciveSet] = useState(false);
 
-  useEffect(() => {
-    setCarouselWidth(carousel.current.clientWidth);
-  }, []);
-
-  let onPlay = () => {
-    setIsPlaying(true);
+  let onOpenVideo = () => {
+    player.current.pause();
+    modalAciveSet(true);
+    setMusicPlayerActive((a) => false);
   };
-  let onNext = () => {
-    setCount((count += 1));
-    setIsPlaying(false);
-  };
-  let onPrev = () => {
-    setCount((count -= 1));
-    setIsPlaying(false);
-  };
-
   return (
     <Wrapper id="video" title="Video">
-      <div ref={carousel} className="video__carousel">
-        <motion.div
-          initial={{ translateX: 0 }}
-          animate={{ translateX: width ? -width * count : 0 }}
-          transition={{ type: "tween", duration: 1 }}
-          className="video__carousel__inner"
-        >
-          {videos.map((video) => (
-            <VideoItem
-              key={video.id}
-              count={count}
-              videos={videos}
-              video={video}
-              onPrev={onPrev}
-              onNext={onNext}
-              isPlaying={isPlaying}
-              onPlay={onPlay}
-            />
-          ))}
-        </motion.div>
+      <div className="video">
+        <>
+          <motion.div className="video__image-container">
+            <motion.img
+              onClick={onOpenVideo}
+              initial={{ scale: 1.4 }}
+              animate={{ scale: 1 }}
+              transition={{
+                easing: [0, 0.71, 0.2, 1.01],
+                delay: 1,
+                duration: 0.7,
+              }}
+              src={videos[0].img}
+              alt="promo"
+            ></motion.img>
+            <motion.div
+              initial={{ width: `100%` }}
+              animate={{ width: 0 }}
+              transition={{
+                delay: 1,
+                duration: 0.8,
+                easings: [0, 0.71, 0.2, 1.01],
+              }}
+              className="animated-block"
+            ></motion.div>
+            <div className="play-btn">
+              <CgPlayButton size={25} style={{ fill: "black" }} />
+            </div>
+          </motion.div>
+        </>
       </div>
+      <VideoModal
+        modalAcive={modalAcive}
+        modalAciveSet={modalAciveSet}
+        videos={videos}
+      />
     </Wrapper>
   );
 }
