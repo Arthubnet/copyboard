@@ -1,7 +1,7 @@
 import React from "react";
 
 import "./news-column.styles.scss";
-import NewsItem from "./News-item";
+import NewsItem from "./NewsItem";
 
 function NewsColumn({ item }) {
   return (

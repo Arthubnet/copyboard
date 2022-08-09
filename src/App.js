@@ -5,11 +5,10 @@ import "./app.styles.scss";
 import Bands from "./Layouts/Bands";
 import Hero from "./Layouts/Hero";
 import MoreNews from "./Layouts/MoreNews";
-import Music from "./Layouts/Music";
 import Navbar from "./Components/Navbar";
 import News from "./Layouts/News";
-import Video from "./Layouts/Video";
 import Media from "./Layouts/Media";
+import Footer from "./Layouts/Footer";
 
 function App() {
   return (
@@ -20,6 +19,7 @@ function App() {
       <Media />
       <Bands />
       <MoreNews />
+      <Footer />
     </div>
   );
 }
