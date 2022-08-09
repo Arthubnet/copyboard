@@ -2,7 +2,7 @@ import "./footer.styles.scss";
 
 function Footer() {
   return (
-    <div class="footer">
+    <div className="footer">
       <p>
         © {new Date().getFullYear()} Built and designed by
         <a

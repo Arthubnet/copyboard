@@ -1,6 +1,9 @@
+import olivia from "../src/assets/img/olivia.jpg";
+import taylor from "../src/assets/img/taylor.jpg";
+
 /* Hero */
 
-let heroData = [
+export let heroData = [
   {
     src: "https://assets.teenvogue.com/photos/6228d78324ee50e5eeee2500/16:9/w_2560%2Cc_limit/1377055201",
     journalist: "07/29/2022 &nbsp&nbsp&nbsp&nbsp By Andrew Unterberger",
@@ -25,7 +28,9 @@ let heroData = [
 /* News*/
 
 export let newsData = [
+  {},
   {
+    id: 1,
     type: "fresh",
     data: [
       [
@@ -45,9 +50,9 @@ export let newsData = [
       [
         {
           genre: "MUSIC",
-          title: `Fox News Taylor Swift's new song 'Carolina' based on Delia Owens' novel 'Where the Crawdads Sing'`,
-          img: "https://api.time.com/wp-content/uploads/2019/04/taylor-swift-time-100-2019-082.jpg?quality=85&zoom=2",
-          alt: "taylor",
+          title: `Olivia Rodrigo's New Album 'Sour' : Pop Culture Happy Hour : NPR`,
+          img: olivia,
+          alt: "olivia",
         },
       ],
 
@@ -68,6 +73,7 @@ export let newsData = [
     ],
   },
   {
+    id: 2,
     type: "Best of Week",
     data: [
       [
@@ -87,9 +93,9 @@ export let newsData = [
       [
         {
           genre: "MUSIC",
-          title: `Business Insider How Singer Pink Makes and Spends Her $110 Million Fortune`,
-          img: "https://cdn.britannica.com/78/204578-050-70DF0CC4/Pink-2018.jpg",
-          alt: "pink",
+          title: `Fox News Taylor Swift's new song 'Carolina' based on Delia Owens' novel 'Where the Crawdads Sing'`,
+          img: taylor,
+          alt: "taylor",
         },
       ],
 
@@ -168,7 +174,7 @@ export let songsData = [
 
 /* Videos */
 
-let videosData = [
+export let videosData = [
   {
     id: "1",
     genre: "Video Top",
@@ -197,7 +203,7 @@ let videosData = [
 
 /* Bands */
 
-let bandsData = [
+export let bandsData = [
   {
     id: "hu",
     title: "The Hu return with This Is Mongol single and spectacular video",
@@ -223,7 +229,7 @@ let bandsData = [
 
 /* More News */
 
-let moreNewsData = [
+export let moreNewsData = [
   {
     genre: "MUSIC",
     title: `Sriya as a K-pop idol is no fluke. A well-oiled industry is hunting for Indian stars`,

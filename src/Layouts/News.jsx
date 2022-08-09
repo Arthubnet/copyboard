@@ -1,30 +1,33 @@
 import React, { useState, useEffect } from "react";
 
 import "./news.styles.scss";
+/* Containers */
 import Wrapper from "../Components/Wrapper";
 import FilterBars from "../Components/FilterBars";
-import { newsData } from "../data";
 import NewsContainer from "../Components/NewsContainer";
 
+import { newsData } from "../data";
+
+/* Framer Motion */
+import { motion, AnimatePresence } from "framer-motion";
+
 function News() {
-  let [selectedNews, setSelectedNews] = useState("fresh");
+  let [count, countSet] = useState(1);
 
   return (
     <Wrapper flex={"flex"} id="news" title="Top News">
-      <FilterBars
-        selectedNews={selectedNews}
-        setSelectedNews={setSelectedNews}
-      />
+      <FilterBars count={count} countSet={countSet} />
 
-      {newsData.map((newsCategory, i) => (
-        <NewsContainer
-          key={i}
-          newsCategory={newsCategory}
-          type={newsCategory.type}
-          selectedNews={selectedNews}
-          setSelectedNews={setSelectedNews}
-        />
-      ))}
+      {newsData
+        .filter((a, i) => i > 0)
+        .map((container, i) => (
+          <NewsContainer
+            container={container}
+            type={container.type}
+            count={count}
+            countSet={countSet}
+          />
+        ))}
     </Wrapper>
   );
 }

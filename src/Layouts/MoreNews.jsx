@@ -34,8 +34,8 @@ function MoreNews() {
 
   return (
     <Wrapper id="more-news" title="Models">
-      <div class="more">
-        <div class="more__container">
+      <div className="more">
+        <div className="more__container">
           {moreNews
             .filter((a, i) => i > 0)
             .map((item, i) => (

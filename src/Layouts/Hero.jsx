@@ -51,7 +51,7 @@ function Hero() {
     <section id="hero" className="hero">
       <motion.div
         animate={{ x: -width * currentImage }}
-        transition={{ duration: 0.5 }}
+        transition={{ duration: 1, easings: [0, 0.71, 0.2, 1.01] }}
         className="hero__slider"
       >
         {heroData.map((slide, index) => (

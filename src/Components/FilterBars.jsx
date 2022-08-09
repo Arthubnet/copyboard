@@ -4,17 +4,20 @@ import "./filter-bars.styles.scss";
 import FilterBar from "./FilterBar";
 import { newsData } from "../data";
 
-function FilterBars({ setSelectedNews, selectedNews }) {
+function FilterBars({ countSet, count }) {
   return (
     <div className="filter-bars">
-      {newsData.map((item, index) => (
-        <FilterBar
-          key={index}
-          type={item.type}
-          setSelectedNews={setSelectedNews}
-          selectedNews={selectedNews}
-        />
-      ))}
+      {newsData
+        .filter((a, i) => i > 0)
+        .map((item, index) => (
+          <FilterBar
+            key={item.id}
+            countSet={countSet}
+            count={count}
+            item={item}
+            type={item.type}
+          />
+        ))}
     </div>
   );
 }

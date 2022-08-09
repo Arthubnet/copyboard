@@ -2,12 +2,12 @@ import React from "react";
 
 import "./filter-bar.styles.scss";
 
-function FilterBar({ selectedNews, setSelectedNews, type }) {
+function FilterBar({ item, countSet, count, type }) {
   return (
     <div className="filter-bar">
       <button
-        className={`${selectedNews === type ? "active" : null}`}
-        onClick={() => setSelectedNews(type)}
+        className={`${count === item.id ? "active" : null}`}
+        onClick={() => countSet(item.id)}
       >
         {type}
       </button>
