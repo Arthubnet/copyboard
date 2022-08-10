@@ -83,11 +83,6 @@ const NewsModal = ({ setModalActive, modalActive, modalNews }) => {
                 sagittis eu volutpat. Odio ut sem nulla pharetra.
               </p>
             </div>
-            <img
-              className="modal-close"
-              src="assets/img/close.svg"
-              alt="close"
-            />
           </div>
         </motion.div>
       ) : null}

@@ -4,6 +4,7 @@ import "./more-news.styles.scss";
 /* Components */
 import Wrapper from "../Components/Wrapper";
 import NewsItem from "../Components/NewsItem";
+import NewsModal from "../Components/NewsModal";
 
 function MoreNews() {
   let [moreNews, setMoreNews] = useState([
@@ -31,18 +32,31 @@ function MoreNews() {
       alt: "nayeon",
     },
   ]);
+  let [count, countSet] = useState(1);
+  let [modalActive, setModalActive] = useState(false);
+  let [modalNews, setModalNews] = useState();
 
   return (
-    <Wrapper id="more-news" title="Models">
+    <Wrapper id="more-news" title="More news">
       <div className="more">
         <div className="more__container">
           {moreNews
             .filter((a, i) => i > 0)
             .map((item, i) => (
-              <NewsItem key={i} item={item} />
+              <NewsItem
+                key={i}
+                item={item}
+                setModalActive={setModalActive}
+                setModalNews={setModalNews}
+              />
             ))}
         </div>
       </div>
+      <NewsModal
+        setModalActive={setModalActive}
+        modalActive={modalActive}
+        modalNews={modalNews}
+      />
     </Wrapper>
   );
 }
