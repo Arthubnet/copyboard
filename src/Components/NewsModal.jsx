@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import "./news-modal.styles.scss";
 
@@ -13,8 +13,20 @@ const NewsModal = ({ setModalActive, modalActive, modalNews }) => {
     },
     exit: { opacity: 0 },
   };
+
+  useEffect(() => {
+    if (modalActive) {
+      document.body.style.overflow = "hidden";
+      document.body.style.paddingRight = "12px";
+    }
+  }, [modalActive]);
+
+  let onExit = () => {
+    document.body.style.overflow = "auto";
+    document.body.style.paddingRight = "0";
+  };
   return (
-    <AnimatePresence>
+    <AnimatePresence onExitComplete={onExit}>
       {modalActive ? (
         <motion.div
           key={1}

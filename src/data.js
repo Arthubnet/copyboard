@@ -1,5 +1,13 @@
 import olivia from "../src/assets/img/olivia.jpg";
-import taylor from "../src/assets/img/taylor2.jpg";
+import taylor from "../src/assets/img/taylor.jpg";
+import okean from "../src/assets/img/okean.jpg";
+import alyona from "../src/assets/img/aloyna.jpg";
+import kanye from "../src/assets/img/kanye.jpg";
+import chinese from "../src/assets/img/chinese.jpg";
+import shakira from "../src/assets/img/shakira.jpg";
+import shreya from "../src/assets/img/shreya.jpg";
+import carlos from "../src/assets/img/carlos.jpg";
+import armin from "../src/assets/img/armin.jpg";
 
 /* Hero */
 
@@ -37,13 +45,13 @@ export let newsData = [
         {
           genre: "MUSIC",
           title: `'The world’s perception of Ukraine has changed' says singer from cult band Okean Elzy`,
-          img: "https://s1.ticketm.net/dam/a/44f/ef2a8f0b-ce68-40fb-9aa9-7823831f844f_92231_TABLET_LANDSCAPE_LARGE_16_9.jpg",
+          img: okean,
           alt: "okean",
         },
         {
           genre: "MUSIC",
           title: `Kanye West Announces 'Donda 2' event in Miami this week`,
-          img: "https://phantom-marca.unidadeditorial.es/d4cdd2b4d0d957024a13d08e870d2ea1/resize/1320/f/jpg/assets/multimedia/imagenes/2022/03/19/16477259420275.jpg",
+          img: kanye,
           alt: "kanye",
         },
       ],
@@ -60,13 +68,13 @@ export let newsData = [
         {
           genre: "MUSIC",
           title: `Shakira complains of harassment after split with Pique`,
-          img: "https://phantom-marca.unidadeditorial.es/aab8aaf75e1d4cea3253886d2f21e5c6/crop/0x0/828x466/resize/1320/f/jpg/assets/multimedia/imagenes/2022/06/14/16552316769449.jpg",
+          img: shakira,
           alt: "shakira",
         },
         {
           genre: "MUSIC",
           title: `Legacy of Taste the CHINESE POP SINGERS making soundwaves in the west`,
-          img: "http://legacyoftaste.wpengine.com/wp-content/uploads/2017/05/maxresdefault-2.jpg",
+          img: chinese,
           alt: "chinese",
         },
       ],
@@ -79,14 +87,14 @@ export let newsData = [
       [
         {
           genre: "MUSIC",
-          title: `Sanjeevani Bhelande to perform a live virtual concert this Sunday`,
-          img: "https://sl.sbs.com.au/public/image/file/f669fea1-434c-4b0a-9633-df2a71935466/crop/16x9",
-          alt: "sanjeevani",
+          title: `Singer Shreya Ghoshal reacts to old Twitter exchanges with Parag Agarwal`,
+          img: shreya,
+          alt: "shreya",
         },
         {
           genre: "MUSIC",
           title: `Alyona Savranenko a.k.a. Alyona Alyona Is Paving the Way for Ukrainian Rap`,
-          img: "https://assets.vogue.com/photos/5cacfe055f16dc5ea444e75e/master/w_2560%2Cc_limit/00-social-alyona.jpg",
+          img: alyona,
           alt: "alyona",
         },
       ],
@@ -103,13 +111,13 @@ export let newsData = [
         {
           genre: "MUSIC",
           title: `List of awards and nominations received by Armin van Buuren`,
-          img: "https://s3.eu-central-1.amazonaws.com/armadafuga/uploads/artist/_1200x630_crop_center-center_82_none/artist-armin-van-buuren.jpg?mtime=1592812110",
+          img: armin,
           alt: "armin",
         },
         {
           genre: "MUSIC",
           title: `Carlos Santana to address UCLA Herb Alpert School of Music graduates`,
-          img: "https://mavenprodcontenthobv2.blob.core.windows.net/media/houseofblues_lav/ImageGalleryWidget/SantanaPromo/image1_Santana.jpg",
+          img: carlos,
           alt: "santana",
         },
       ],
