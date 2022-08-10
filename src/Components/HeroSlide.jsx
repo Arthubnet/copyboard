@@ -7,7 +7,7 @@ import parse from "html-react-parser";
 function HeroSlide({ slide, setCurrentImage, currentImage, heroData }) {
   let [disabled, setDisable] = useState({ left: false, right: false });
 
-  let disableCarouselBtns = () => {
+  /*   let disableCarouselBtns = () => {
     if (currentImage === 0) {
       setDisable({ right: false, left: true });
       return;
@@ -18,9 +18,9 @@ function HeroSlide({ slide, setCurrentImage, currentImage, heroData }) {
     } else {
       setDisable({ right: false, left: false });
     }
-  };
+  }; */
   useEffect(() => {
-    disableCarouselBtns();
+    console.log(currentImage);
   }, [currentImage]);
 
   return (
@@ -35,22 +35,23 @@ function HeroSlide({ slide, setCurrentImage, currentImage, heroData }) {
         <p>{slide.footer}</p>
       </div>
       <div className="arrows heroBtn">
-        <button
-          style={{ opacity: disabled.left ? 0.4 : 1 }}
-          disabled={disabled.left}
-          onClick={() => setCurrentImage((currentImage -= 1))}
-          className="hero-left-arrow arrow"
-        >
-          &#8592;
-        </button>
-        <button
-          style={{ opacity: disabled.right ? 0.4 : 1 }}
-          disabled={disabled.right}
-          onClick={() => setCurrentImage((currentImage += 1))}
-          className="hero-right-arrow arrow"
-        >
-          &#8594;
-        </button>
+        {currentImage !== 0 && currentImage === slide.id - 1 ? (
+          <button
+            onClick={() => setCurrentImage((currentImage -= 1))}
+            className="hero-left-arrow arrow"
+          >
+            &#8592;
+          </button>
+        ) : null}
+        {currentImage !== heroData.length - 1 &&
+        currentImage === slide.id - 1 ? (
+          <button
+            onClick={() => setCurrentImage((currentImage += 1))}
+            className="hero-right-arrow arrow"
+          >
+            &#8594;
+          </button>
+        ) : null}
       </div>
     </div>
   );

@@ -1,0 +1,67 @@
+.news-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  z-index: 10;
+  .background-close {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: transparent;
+    z-index: 11;
+  }
+  &__inner {
+    position: relative;
+    width: 800px;
+    height: 90vh;
+    margin: 0 auto;
+    top: 9vh;
+    background: white;
+    padding: 3% 2.5% 1%;
+    color: black;
+    overflow: auto;
+    flex-direction: column;
+    overflow-x: hidden;
+    z-index: 12;
+    h2 {
+      width: 96%;
+      color: black;
+      text-transform: none;
+      font-weight: bold;
+      margin-bottom: 3%;
+    }
+    p {
+      color: black;
+    }
+    .journalist {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+    }
+    .news-modal-picture {
+      width: 100%;
+      padding: 10px 0 20px 0;
+    }
+    .modal-close {
+      position: absolute;
+      top: 1.5%;
+      right: 1.5%;
+      &:hover {
+        cursor: pointer;
+        opacity: 0.7;
+      }
+    }
+    .modal-paragraph {
+      p {
+        line-height: 2rem;
+      }
+    }
+  }
+}

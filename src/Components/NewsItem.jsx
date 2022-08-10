@@ -1,29 +1,40 @@
 import React from "react";
 
 import "./news-item.styles.scss";
-
+/* Disable scroll */
+import disableScroll from "disable-scroll";
+/* Framer Motion */
 import { motion } from "framer-motion";
 
-function NewsItem({ item }) {
+function NewsItem({ item, delay, setModalActive, setModalNews }) {
   let animateItem = {
-    hidden: { y: 50 },
+    hidden: { x: -50 },
     visible: {
-      y: 0,
-      transition: { duration: 1.3, easings: [0, 0.71, 0.2, 1.01] },
+      x: 0,
+      transition: {
+        delay: delay,
+        duration: 1.3,
+        easings: [0, 0.71, 0.2, 1.01],
+      },
     },
+  };
+
+  let onOpenModal = () => {
+    setModalActive(true);
+    setModalNews(item);
   };
 
   return (
     <motion.div
-      /*  variants={animateItem}
+      /*      variants={animateItem}
       initial="hidden"
       animate="visible" */
       className="news__item"
     >
-      <div className="image-container">
+      <div onClick={onOpenModal} className="image-container">
         <img
-          src={item.img}
           className="news-img"
+          src={item.img}
           loading="lazy"
           alt={item.alt}
         />

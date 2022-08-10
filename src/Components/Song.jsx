@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 
 import "./song.styles.scss";
-let animationBars = [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}];
 
 function Song({ song, specificSong, isPlaying, count }) {
   return (
@@ -25,14 +24,16 @@ function Song({ song, specificSong, isPlaying, count }) {
           <p>{song.artist}</p>
         </div>
         <div className="song-equalizer active">
-          {animationBars.map((a, i) => (
-            <div
-              key={i}
-              className={`${
-                isPlaying && song.id === count ? "active" : ""
-              } bar`}
-            ></div>
-          ))}
+          {Array(10)
+            .fill(1)
+            .map((a, i) => (
+              <div
+                key={i}
+                className={`${
+                  isPlaying && song.id === count ? "active" : ""
+                } bar`}
+              ></div>
+            ))}
         </div>
         <div className="song-length">
           <p>{song.duration}</p>

@@ -10,9 +10,17 @@ import News from "./Layouts/News";
 import Media from "./Layouts/Media";
 import Footer from "./Layouts/Footer";
 
+/* Framer Motion */
+import { motion } from "framer-motion";
+
 function App() {
   return (
-    <div className="App">
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 1, easings: [0, 0.71, 0.2, 1.01] }}
+      className="App"
+    >
       <Navbar />
       <Hero />
       <News />
@@ -20,7 +28,7 @@ function App() {
       <Bands />
       <MoreNews />
       <Footer />
-    </div>
+    </motion.div>
   );
 }
 

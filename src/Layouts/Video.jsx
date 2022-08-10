@@ -48,11 +48,11 @@ function Video({ player, setMusicPlayerActive }) {
       alt: "sade",
     },
   ]);
-  let [modalAcive, modalAciveSet] = useState(false);
+  let [modalActive, setModalActive] = useState(false);
 
   let onOpenVideo = () => {
     player.current.pause();
-    modalAciveSet(true);
+    setModalActive(true);
     setMusicPlayerActive((a) => false);
   };
   return (
@@ -89,8 +89,8 @@ function Video({ player, setMusicPlayerActive }) {
         </>
       </div>
       <VideoModal
-        modalAcive={modalAcive}
-        modalAciveSet={modalAciveSet}
+        modalActive={modalActive}
+        setModalActive={setModalActive}
         videos={videos}
       />
     </Wrapper>

@@ -10,8 +10,10 @@
   color: white;
   scroll-behavior: smooth;
 }
+
 body {
   overflow-x: hidden;
+  background: black;
   &.noscroll {
     overflow: hidden;
     padding-right: 12px;
@@ -88,10 +90,30 @@ section {
     background: transparent;
     outline: none;
     border: none;
-    padding-bottom: 3px;
     &.active {
       opacity: 0.4;
       pointer-events: none;
     }
   }
+}
+
+/* Scrolbar */
+
+::-webkit-scrollbar {
+  position: absolute;
+
+  width: 12px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #909090;
+  background-repeat: no-repeat;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #212123;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #606060;
 }

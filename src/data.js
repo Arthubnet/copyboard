@@ -1,5 +1,5 @@
 import olivia from "../src/assets/img/olivia.jpg";
-import taylor from "../src/assets/img/taylor.jpg";
+import taylor from "../src/assets/img/taylor2.jpg";
 
 /* Hero */
 

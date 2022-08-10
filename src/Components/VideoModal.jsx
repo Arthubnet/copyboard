@@ -1,16 +1,33 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 
 import "./video-modal.styles.scss";
 
+/* Framer Motion */
 import { motion, AnimatePresence } from "framer-motion";
 
-const VideoModal = ({ modalAcive, modalAciveSet, videos }) => {
+const VideoModal = ({ modalActive, setModalActive, videos }) => {
   let videoPlayer = useRef(null);
 
   let onComplete = () => {
-    if (modalAcive) {
+    if (modalActive) {
       videoPlayer.current.play();
     }
+  };
+
+  let onClose = () => {
+    setModalActive(false);
+  };
+
+  useEffect(() => {
+    if (modalActive) {
+      document.body.style.overflow = "hidden";
+      document.body.style.paddingRight = "12px";
+    }
+  }, [modalActive]);
+
+  let onExit = () => {
+    document.body.style.overflow = "auto";
+    document.body.style.paddingRight = "0";
   };
 
   /* Framer motion variables */
@@ -39,8 +56,8 @@ const VideoModal = ({ modalAcive, modalAciveSet, videos }) => {
     exit: { opacity: 0, transition: { duration: 1 } },
   };
   return (
-    <AnimatePresence>
-      {modalAcive && (
+    <AnimatePresence onExitComplete={onExit}>
+      {modalActive && (
         <motion.div
           className="modal"
           key={1}
@@ -49,10 +66,7 @@ const VideoModal = ({ modalAcive, modalAciveSet, videos }) => {
           animate="visible"
           exit="exit"
         >
-          <div
-            onClick={() => modalAciveSet(false)}
-            className="modal-close"
-          ></div>
+          <div onClick={onClose} className="modal-close"></div>
           <motion.div
             className="modal__inner"
             key={2}

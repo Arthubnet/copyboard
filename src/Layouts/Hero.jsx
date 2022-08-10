@@ -3,9 +3,6 @@ import React, { useState } from "react";
 import "./hero.styles.scss";
 import HeroSlide from "../Components/HeroSlide";
 
-/* Imgs */
-import heroTwo from "../assets/img/heroTwo.jpg";
-import heroThree from "../assets/img/heroThree.jpg";
 /* width hook */
 import useWindowDimensions from "../Hooks/useWindowDimensions";
 /* Framer Motion */
@@ -16,6 +13,7 @@ function Hero() {
   let [currentImage, setCurrentImage] = useState(0);
   let heroData = [
     {
+      id: 1,
       imgUrl:
         "https://mloz5fexx1sj.i.optimole.com/gmV1hb0-nqBoy2En/w:auto/h:auto/q:100/https://gal-dem.com/wp-content/uploads/2022/01/Untitled-design-25.png",
       date: "07/23/2022",
@@ -26,6 +24,7 @@ function Hero() {
     },
 
     {
+      id: 2,
       imgUrl:
         "https://images.ctfassets.net/hbmwn5pbkdff/60hCMrPi5eOkFoewrfMBc7/1476e756867c366848d441a4646af070/CROPPED_BRAND_VOGUE_MEXICO2.jpg",
       date: "07/23/2022",
@@ -36,6 +35,7 @@ function Hero() {
     },
 
     {
+      id: 3,
       imgUrl:
         "https://media.npr.org/assets/img/2021/11/10/will-smith-new-headshot-credit-lorenzo-agius_wide-fce30e30fbf83a2c586848fa991d1d61ab768cd2.jpg",
       date: "07/23/2022",
