@@ -6,11 +6,7 @@ import Wrapper from "../Components/Wrapper";
 import FilterBars from "../Components/FilterBars";
 import NewsContainer from "../Components/NewsContainer";
 
-/* Framer Motion */
-import { motion, AnimatePresence } from "framer-motion";
 import NewsModal from "../Components/NewsModal";
-
-import { FocusOn, InFocusGuard } from "react-focus-on";
 
 function News() {
   let [count, countSet] = useState(1);

@@ -7,6 +7,7 @@ import Hero from "./Layouts/Hero";
 import MoreNews from "./Layouts/MoreNews";
 import Navbar from "./Components/Navbar";
 import News from "./Layouts/News";
+import TestNews from "./Layouts/TestNews";
 import Media from "./Layouts/Media";
 import Footer from "./Layouts/Footer";
 
@@ -23,7 +24,8 @@ function App() {
     >
       <Navbar />
       <Hero />
-      <News />
+      <TestNews />
+      {/*    <News /> */}
       <Media />
       <Bands />
       <MoreNews />

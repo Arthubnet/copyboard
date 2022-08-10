@@ -43,8 +43,8 @@ const NewsModal = ({ setModalActive, modalActive, modalNews }) => {
           <div className="news-modal__inner">
             <h2>{modalNews.title}</h2>
             <div className="journalist">
+              <p className="author">By Brandon Ridish</p>
               <p>07/23/2022</p>
-              <p>By Brandon Ridish</p>
             </div>
             <img
               className="news-modal-picture"

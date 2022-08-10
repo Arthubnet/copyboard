@@ -1,8 +1,7 @@
 import React from "react";
 
 import "./news-item.styles.scss";
-/* Disable scroll */
-import disableScroll from "disable-scroll";
+
 /* Framer Motion */
 import { motion } from "framer-motion";
 

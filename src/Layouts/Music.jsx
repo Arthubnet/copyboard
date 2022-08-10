@@ -110,7 +110,7 @@ function Music({
     player.current.pause();
   };
   return (
-    <Wrapper id="music" title="Top 5 Songs">
+    <Wrapper id="music" title="Songs of the Week">
       {/* <audio
         type="audio/mpeg"
         ref={player}

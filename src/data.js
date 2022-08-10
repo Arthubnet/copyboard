@@ -8,6 +8,7 @@ import shakira from "../src/assets/img/shakira.jpg";
 import shreya from "../src/assets/img/shreya.jpg";
 import carlos from "../src/assets/img/carlos.jpg";
 import armin from "../src/assets/img/armin.jpg";
+import hardy from "../src/assets/img/hardy.jpg";
 
 /* Hero */
 
@@ -35,6 +36,34 @@ export let heroData = [
 
 /* News*/
 
+export let news = [
+  {
+    id: 1,
+    img: "https://www.biography.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:good%2Cw_1200/MTg0ODYwOTg5MDMwNjcxNDgw/gettyimages-1184956791.jpg",
+    title: `How Did Olivia Rodrigo Become The World's Biggest Pop Star? `,
+    category: "Music",
+  },
+  {
+    id: 2,
+    img: "https://static.independent.co.uk/s3fs-public/thumbnails/image/2014/01/21/17/Hugh-Jackman.jpg?width=1200",
+    title: `Hugh Jackman: Wolverine has not eclipsed my career`,
+    category: "Movies",
+  },
+  {
+    id: 3,
+    img: "https://assets.vogue.com/photos/5a19968e27e1b64a2a871d74/1:1/w_2165,h_2165,c_limit/GettyImages-852718898.jpg",
+    title: `Willow Smith Gets Real About Growing Up With Famous Parents`,
+    category: "Music",
+  },
+
+  {
+    id: 4,
+    img: hardy,
+    title: `Tom Hardy says he's 'kind of had enough' of acting`,
+    category: "Movies",
+  },
+];
+
 export let newsData = [
   {},
   {
@@ -44,7 +73,7 @@ export let newsData = [
       [
         {
           genre: "MUSIC",
-          title: `'The world’s perception of Ukraine has changed' says singer from cult band Okean Elzy`,
+          title: `Okean Elzy plays the Riv on Sunday`,
           img: okean,
           alt: "okean",
         },
@@ -73,7 +102,7 @@ export let newsData = [
         },
         {
           genre: "MUSIC",
-          title: `Legacy of Taste the CHINESE POP SINGERS making soundwaves in the west`,
+          title: `Chinese pop singers making soundwaves in the west`,
           img: chinese,
           alt: "chinese",
         },
@@ -101,7 +130,7 @@ export let newsData = [
       [
         {
           genre: "MUSIC",
-          title: `Fox News Taylor Swift's new song 'Carolina' based on Delia Owens' novel 'Where the Crawdads Sing'`,
+          title: `Taylor Swift's new song 'Carolina' based on Delia Owens' novel 'Where the Crawdads Sing'`,
           img: taylor,
           alt: "taylor",
         },
