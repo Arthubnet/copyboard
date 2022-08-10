@@ -57,19 +57,20 @@ function Bands() {
       <div className="bands__container">
         <AnimatePresence exitBeforeEnter>
           {count ? (
-            <motion.div
-              className="bands__container__promo"
-              key={count}
-              variants={imgAnimation}
-              initial="hidden"
-              animate="visible"
-              exit="exit"
-              style={{ backgroundImage: `url(${bands[count].img})` }}
-            >
+            <div className="bands__container__promo">
+              <motion.img
+                key={count}
+                variants={imgAnimation}
+                initial="hidden"
+                animate="visible"
+                exit="exit"
+                src={bands[count].img}
+                alt="promo"
+              ></motion.img>
               <div className="promo-title">
                 <h2>{bands[count].title}</h2>
               </div>
-            </motion.div>
+            </div>
           ) : null}
         </AnimatePresence>
         <div className="bands__container__cards">

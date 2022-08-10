@@ -4,7 +4,7 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.9);
   display: flex;
   justify-content: center;
   z-index: 10;
@@ -23,24 +23,23 @@
     height: 90vh;
     margin: 0 auto;
     top: 9vh;
-    background: white;
+    background: rgb(0, 13, 8);
     padding: 1.5% 2% 1%;
-    color: black;
+    color: white;
     overflow: auto;
     flex-direction: column;
     overflow-x: hidden;
     z-index: 12;
-
     h2 {
       width: 96%;
-      color: black;
+      color: #fff;
       text-transform: none;
       font-weight: bold;
       margin-bottom: 1%;
-      font-family: "Playfair Display", serif;
+      /*   font-family: "Playfair Display", serif; */
     }
     p {
-      color: black;
+      color: #fff;
     }
     .journalist {
       width: 100%;
@@ -49,10 +48,10 @@
 
       p {
         color: #a2a2a2;
-        font-weight: 700;
+        font-weight: 300;
       }
       .author {
-        font-weight: 700;
+        font-weight: 300;
         color: var(--theme-color);
       }
     }
@@ -73,6 +72,9 @@
       p {
         line-height: 2rem;
       }
+    }
+    @media all and (max-width: 1000px) {
+      width: 85%;
     }
   }
 }

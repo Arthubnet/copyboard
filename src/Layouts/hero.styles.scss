@@ -3,12 +3,15 @@
   height: 93vh;
   overflow: hidden;
   padding: 0;
-  margin-top: 7vh;
+  margin: 7vh 0 100px;
 
   &__slider {
     height: 100%;
     overflow: hidden;
     position: relative;
     display: inline-flex;
+  }
+  @media all and (max-width: 1000px) {
+    margin-bottom: 50px;
   }
 }

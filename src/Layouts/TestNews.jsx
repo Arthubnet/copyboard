@@ -50,7 +50,7 @@ function TestNews() {
                   ease: [0.4, 0, 0.2, 1],
                 }}
                 src={aNew.img}
-                alt="olivia"
+                alt={aNew.alt}
               ></motion.img>
             </motion.div>
             <div className="title">

@@ -30,7 +30,6 @@
     bottom: 10%;
     right: 5%;
     .arrow {
-      /*      background: var(--theme-color); */
       color: var(--theme-color);
       transition: 0.4s ease-in-out;
       &:hover {
@@ -40,6 +39,11 @@
     }
     @media all and (max-width: 700px) {
       display: none;
+    }
+  }
+  @media all and (max-width: 1000px) {
+    .hero-title {
+      width: 80%;
     }
   }
 }

@@ -5,24 +5,6 @@ import "./hero-slide.styles.scss";
 import parse from "html-react-parser";
 
 function HeroSlide({ slide, setCurrentImage, currentImage, heroData }) {
-  let [disabled, setDisable] = useState({ left: false, right: false });
-
-  /*   let disableCarouselBtns = () => {
-    if (currentImage === 0) {
-      setDisable({ right: false, left: true });
-      return;
-    }
-    if (currentImage === heroData.length - 1) {
-      setDisable({ right: true, left: false });
-      return;
-    } else {
-      setDisable({ right: false, left: false });
-    }
-  }; */
-  useEffect(() => {
-    console.log(currentImage);
-  }, [currentImage]);
-
   return (
     <div className="hero__slider__slide">
       <img className="hero-background" src={slide.imgUrl} alt="hero" />

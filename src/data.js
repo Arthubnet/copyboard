@@ -42,18 +42,21 @@ export let news = [
     img: "https://www.biography.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:good%2Cw_1200/MTg0ODYwOTg5MDMwNjcxNDgw/gettyimages-1184956791.jpg",
     title: `How Did Olivia Rodrigo Become The World's Biggest Pop Star? `,
     category: "Music",
+    alt: "olivia",
   },
   {
     id: 2,
     img: "https://static.independent.co.uk/s3fs-public/thumbnails/image/2014/01/21/17/Hugh-Jackman.jpg?width=1200",
     title: `Hugh Jackman: Wolverine has not eclipsed my career`,
     category: "Movies",
+    alt: "hugh",
   },
   {
     id: 3,
     img: "https://assets.vogue.com/photos/5a19968e27e1b64a2a871d74/1:1/w_2165,h_2165,c_limit/GettyImages-852718898.jpg",
     title: `Willow Smith Gets Real About Growing Up With Famous Parents`,
     category: "Music",
+    alt: "willow",
   },
 
   {
@@ -61,6 +64,7 @@ export let news = [
     img: hardy,
     title: `Tom Hardy says he's 'kind of had enough' of acting`,
     category: "Movies",
+    alt: "hardy",
   },
 ];
 
