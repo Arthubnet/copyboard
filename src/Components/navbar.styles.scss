@@ -63,6 +63,7 @@
   &__burger {
     width: 32px;
     height: 25px;
+    cursor: pointer;
     -webkit-transition: all 0.3s linear;
     transition: transform 0.5s ease-in;
     span {
@@ -78,9 +79,6 @@
     }
     &:hover span {
       background: var(--theme-color);
-    }
-    &:hover {
-      cursor: pointer;
     }
     &.active {
       -webkit-transform: rotate(90deg);

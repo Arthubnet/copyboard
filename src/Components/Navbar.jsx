@@ -15,7 +15,7 @@ let links = [
 ];
 
 function Navbar() {
-  let [menuActive, setActive] = useState(false);
+  let [menuActive, setMenutActive] = useState(false);
   let { width } = useWindowDimensions();
 
   useEffect(() => {
@@ -24,15 +24,11 @@ function Navbar() {
         document.body.style.overflow = "hidden";
         document.body.style.paddingRight = "12px";
       }
-    }
-  }, [menuActive]);
-
-  let onExit = () => {
-    if (!menuActive) {
+    } else if (!menuActive) {
       document.body.style.overflow = "auto";
       document.body.style.paddingRight = "0";
     }
-  };
+  }, [menuActive]);
 
   let menuAnimation = {
     hidden: { x: "100%" },
@@ -42,7 +38,12 @@ function Navbar() {
         duration: 0.3,
       },
     },
-    exit: { x: "100%" },
+    exit: {
+      opacity: 0,
+      transition: {
+        duration: 0.8,
+      },
+    },
   };
 
   let listActive = {
@@ -52,11 +53,10 @@ function Navbar() {
       opacity: 1,
       transition: { delay: 0.6 + i * 0.2, duration: 0.3 },
     }),
-    exit: { x: 150, opacity: 0 },
   };
 
-  let onClick = () => {
-    setActive((value) => !value);
+  let toggleMenu = () => {
+    setMenutActive((value) => !value);
   };
 
   return (
@@ -68,18 +68,20 @@ function Navbar() {
         <AnimatePresence exitBeforeEnter>
           {menuActive ? (
             <motion.ul
-              onAnimationComplete={onExit}
               className="navbar__menu-lists"
               initial="hidden"
               animate="visible"
+              exit="exit"
               variants={menuAnimation}
             >
               {links.map((link, i) => (
                 <motion.li
+                  onClick={toggleMenu}
                   key={i}
                   variants={listActive}
                   initial="hidden"
                   animate="visible"
+                  exit="exit"
                   custom={i}
                 >
                   <a className="nav-link" href={`#${link.name.toLowerCase()}`}>
@@ -93,7 +95,7 @@ function Navbar() {
       </div>
 
       <div
-        onClick={onClick}
+        onClick={toggleMenu}
         className={`${menuActive ? "active " : ""}navbar__burger`}
       >
         {Array(3)
