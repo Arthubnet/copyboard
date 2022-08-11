@@ -1,7 +1,21 @@
 import "./band-cards.styles.scss";
-function BandsCard({ band, count, setCount }) {
+
+import { motion } from "framer-motion";
+
+function BandsCard({ band, count, setCount, delay }) {
+  let cardAnim = {
+    on: { x: 30, opacity: 0 },
+    off: {
+      x: 0,
+      opacity: 1,
+      transition: { delay: (delay + 1) * 0.15, duration: 1.2 },
+    },
+  };
   return (
-    <div
+    <motion.div
+      variants={cardAnim}
+      initial="on"
+      animate="off"
       onClick={() => setCount(band.id)}
       id={band.id}
       className={`${
@@ -13,7 +27,7 @@ function BandsCard({ band, count, setCount }) {
         <p>{band.author}</p>
         <p>{band.time}</p>
       </div>
-    </div>
+    </motion.div>
   );
 }
 

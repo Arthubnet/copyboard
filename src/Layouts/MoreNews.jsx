@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 
 import "./more-news.styles.scss";
 /* Components */
@@ -6,50 +6,41 @@ import Wrapper from "../Components/Wrapper";
 import NewsItem from "../Components/NewsItem";
 import NewsModal from "../Components/NewsModal";
 
-function MoreNews() {
-  let [moreNews, setMoreNews] = useState([
-    {},
-    {
-      id: 1,
-      genre: "MODELS",
-      title: `The models that turned Instagram into their DIY catwalk `,
-      img: "https://ichef.bbci.co.uk/news/976/cpsprodpb/12A9A/production/_120424467_joy2.jpg",
-      alt: "sriya",
-    },
+import { moreNewsData } from "../data";
 
-    {
-      id: 2,
-      genre: "MODELS",
-      title: `How Pooja Mor is Bringing Her Indian Culture to Modeling`,
-      img: "https://media.allure.com/photos/57719e3e8d432b9e20f90df8/16:9/w_1280,c_limit/celebrity-trends-2016-03-model-pooja-moor.jpg",
-      alt: "brad",
-    },
-    {
-      id: 3,
-      genre: "MODELS",
-      title: `Kelsey Merritt is our (role) model on and off the runway`,
-      img: "http://images.summitmedia-digital.com/preview/images/2018/11/14/KELSEY-MERRITT-VOGUE-nm.jpg",
-      alt: "nayeon",
-    },
-  ]);
-  let [count, countSet] = useState(1);
+import { motion, useInView } from "framer-motion";
+
+function MoreNews() {
   let [modalActive, setModalActive] = useState(false);
   let [modalNews, setModalNews] = useState();
+  let ref = useRef(null);
+  let isInView = useInView(ref, { once: true });
 
   return (
     <Wrapper id="more-news" title="More news">
       <div className="more">
-        <div className="more__container">
-          {moreNews
-            .filter((a, i) => i > 0)
-            .map((item, i) => (
-              <NewsItem
-                key={i}
-                item={item}
-                setModalActive={setModalActive}
-                setModalNews={setModalNews}
-              />
-            ))}
+        <div ref={ref} className="more__container">
+          {isInView &&
+            moreNewsData
+              .filter((a, i) => i > 0)
+              .map((item, i) => (
+                <motion.div
+                  initial={{ y: 50, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  transition={{
+                    duration: 1,
+                    delay: (i + 1) * 0.15,
+                    easings: [0, 0.71, 0.2, 1.01],
+                  }}
+                >
+                  <NewsItem
+                    key={i}
+                    item={item}
+                    setModalActive={setModalActive}
+                    setModalNews={setModalNews}
+                  />
+                </motion.div>
+              ))}
         </div>
       </div>
       <NewsModal

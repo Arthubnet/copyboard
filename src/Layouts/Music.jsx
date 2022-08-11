@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useRef } from "react";
 
 import "./music.styles.scss";
 
@@ -6,6 +6,9 @@ import "./music.styles.scss";
 import Wrapper from "../Components/Wrapper";
 import Song from "./../Components/Song";
 import MusicPlayer from "./../Components/MusicPlayer";
+
+/* Motion */
+import { motion, useInView } from "framer-motion";
 
 export function calculateDuration(songSeconds) {
   let minutes = Math.floor(songSeconds / 60);
@@ -28,6 +31,9 @@ function Music({
   currentTime,
   duration,
 }) {
+  let ref = useRef(null);
+  let isInView = useInView(ref, { once: true });
+
   let togglePlay = () => {
     if (!isPlaying) {
       setIsPlaying(true);
@@ -90,19 +96,21 @@ function Music({
 
   return (
     <Wrapper id="music" title="Songs of the Week">
-      <div className="music__list">
+      <motion.div ref={ref} className="music__list">
         {songs
           .filter((item, i) => i > 0)
-          .map((song) => (
+          .map((song, i) => (
             <Song
               key={song.id}
               song={song}
               specificSong={specificSong}
               count={count}
               isPlaying={isPlaying}
+              isInView={isInView}
+              delay={i}
             />
           ))}
-      </div>
+      </motion.div>
       <MusicPlayer
         currentTime={currentTime}
         duration={duration}

@@ -21,6 +21,22 @@ import willow from "../src/assets/img/willow.jpg";
 import hugh from "../src/assets/img/hugh.jpg";
 import olivia from "../src/assets/img/olivia.jpg";
 
+/* Videos */
+import img from "../src/assets/img/ridni.jpg";
+import okeanVid from "../src/assets/video/okean.mp4";
+import ridniVid from "../src/assets/video/ridni.mp4";
+import sadeVid from "../src/assets/video/sade.mp4";
+
+/* Bands */
+
+import hu from "../src/assets/img/hu.jpg";
+import zakk from "../src/assets/img/zakk.jpg";
+import gwen from "../src/assets/img/gwen.jpg";
+/* More news */
+import moreNews1 from "../src/assets/img/moreNews1.jpg";
+import moreNews2 from "../src/assets/img/moreNews2.jpg";
+import moreNews3 from "../src/assets/img/moreNews3.jpg";
+
 /* Hero */
 
 export let heroData = [
@@ -238,27 +254,27 @@ export let songsData = [
 
 export let videosData = [
   {
-    id: "1",
+    id: 1,
     genre: "Video Top",
     title: `Okean Elzy & Odyn v kanoe - Misto vesny || Official video`,
     img: "https://zn.ua/img/forall/u/14/3/%D0%9C%D1%96%D1%81%D1%82%D0%BE%20%D0%B2%D0%B5%D1%81%D0%BD%D0%B8.jpg",
-    path: "assets/video/okean.mp4",
+    path: okeanVid,
     alt: "okean",
   },
   {
-    id: "2",
+    id: 2,
     genre: "Video Top",
     title: `Alyona alyona - Рідні мої (feat. Jerry Heil)`,
-    img: "./assets/img/ridni.jpg",
-    path: "assets/video/ridni.mp4",
+    img: img,
+    path: ridniVid,
     alt: "ridni",
   },
   {
-    id: "3",
+    id: 3,
     genre: "Video Top",
     title: `Song of the Day: Jezebel by Sade, Live`,
     img: "https://distracttv.com/wp-content/uploads/2017/09/SADE-Singer-featured-image.jpg",
-    path: "assets/video/sade.mp4",
+    path: sadeVid,
     alt: "sade",
   },
 ];
@@ -266,48 +282,54 @@ export let videosData = [
 /* Bands */
 
 export let bandsData = [
+  {},
   {
-    id: "hu",
-    title: "The Hu return with This Is Mongol single and spectacular video",
+    id: 1,
+    title: `The Hu return with This Is Mongol single and spectacular video`,
     author: "Andrey Coy",
     time: "5 hours ago",
-    img: "https://d3nxoulyw7bc8u.cloudfront.net/images/artists/None/45e8cb4f-cf8b-4047-98db-791110e45cef.jpg",
+    img: hu,
   },
   {
-    id: "metallica",
-    title: `METALLICA Releases "Fight Fire With Fire" Live In Brazil`,
+    id: 2,
+    title: `Zakk Wylde reflects on 12 musical milestones from a career path`,
     author: "Henry Gray",
     time: "10 hours ago",
-    img: "https://cdn-img.scalabs.com.au/yK7DeI7lMr4J3UPG0asysrNuGix3Qy5su7kRLMnmM_I/aHR0cHM6Ly9zdy10/cmlwbGVtLXByZC5z/Y2FkaWdpdGFsLmlv/L21lZGlhLzQxNzk5/L2phbWVzLWhldGZp/ZWxkLmpwZz9wcmVz/ZXQ9TWFpbkltYWdl",
+    img: zakk,
   },
   {
-    id: "soad",
-    title: `System Of A Down: “As long as we’re on the same page, we'll play"`,
+    id: 3,
+    title: `Gwen Stefani accused of cultural appropriation in 'Light My Fire'`,
     author: "Hannah Dailey",
     time: "3 hours ago",
-    img: "https://cdn.mos.cms.futurecdn.net/pHLyg8XNqe6zzxShC3EvDd-1200-80.jpg",
+    img: gwen,
   },
 ];
 
 /* More News */
 
 export let moreNewsData = [
+  {},
   {
-    genre: "MUSIC",
-    title: `Sriya as a K-pop idol is no fluke. A well-oiled industry is hunting for Indian stars`,
-    img: "https://static.theprint.in/wp-content/uploads/2022/06/K-Pop-copy.jpg?compress=true&quality=80&w=800&dpr=1.0",
+    id: 1,
+    genre: "MODELS",
+    title: `The models that turned Instagram into their DIY catwalk `,
+    img: moreNews1,
     alt: "sriya",
   },
+
   {
-    genre: "TV/FILM",
-    title: `'Who did the body?' Brad Pitt's GQ magazine cover is 'very upsetting' to some people`,
-    img: "https://static.foxnews.com/foxnews.com/content/uploads/2019/09/brad-pitt-ad-astra-tokyo-getty.jpg",
+    id: 2,
+    genre: "MODELS",
+    title: `How Pooja Mor is Bringing Her Indian Culture to Modeling`,
+    img: moreNews2,
     alt: "brad",
   },
   {
-    genre: "MUSIC",
-    title: `TWICE’s Nayeon Is the Perfect ‘Pop!’ Star With Debut Solo Album: Listen`,
-    img: "https://www.billboard.com/wp-content/uploads/2022/05/nayeon-twice-2022-press-billboard-1548.png?w=910&h=511&crop=1&resize=681%2C383",
+    id: 3,
+    genre: "MODELS",
+    title: `Kelsey Merritt is our (role) model on and off the runway`,
+    img: moreNews3,
     alt: "nayeon",
   },
 ];
