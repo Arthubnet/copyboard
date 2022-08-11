@@ -6,7 +6,6 @@ import useWindowDimensions from "./../Hooks/useWindowDimensions";
 
 /* framer motion */
 import { motion, AnimatePresence } from "framer-motion";
-import { type } from "@testing-library/user-event/dist/type";
 
 let links = [
   { name: "News" },
@@ -18,6 +17,20 @@ let links = [
 function Navbar() {
   let [menuActive, setMenutActive] = useState(false);
   let { width } = useWindowDimensions();
+  let [navbarHidden, setNavbarHidden] = useState(false);
+  /* Hiding navbar */
+  let lastScroll;
+  let currentScroll;
+
+  window.addEventListener("scroll", () => {
+    currentScroll = window.pageYOffset;
+    if (currentScroll > lastScroll && currentScroll > 300) {
+      setNavbarHidden(true);
+    } else if (currentScroll < lastScroll) {
+      setNavbarHidden(false);
+    }
+    lastScroll = currentScroll;
+  });
 
   useEffect(() => {
     if (menuActive) {
@@ -29,7 +42,7 @@ function Navbar() {
       setTimeout(() => {
         document.body.style.overflow = "auto";
         document.body.style.paddingRight = "0";
-      }, 1000);
+      }, 200);
     }
   }, [menuActive]);
 
@@ -62,53 +75,76 @@ function Navbar() {
   let toggleMenu = () => {
     setMenutActive((value) => !value);
   };
-
+  let navAnim = {
+    off: { y: "-10vh", opacity: 0 },
+    on: { y: 0, opacity: 1, transition: { duration: 1 } },
+    out: {
+      y: "-10vh",
+      opacity: 0,
+      transition: { duration: 1, ease: [0.17, 0.67, 0.83, 0.67] },
+    },
+  };
   return (
-    <div className="navbar">
-      <div className="navbar__logo">
-        <a href="/">copyboard</a>
-      </div>
-      <div className="navbar__menu">
-        <AnimatePresence exitBeforeEnter>
-          {menuActive ? (
-            <motion.ul
-              className="navbar__menu-lists"
-              initial="hidden"
-              animate="visible"
-              exit="exit"
-              variants={menuAnimation}
-            >
-              {links.map((link, i) => (
-                <motion.li
-                  onClick={toggleMenu}
-                  key={i}
-                  variants={listActive}
-                  initial="hidden"
-                  animate="visible"
-                  exit="exit"
-                  custom={i}
-                >
-                  <a className="nav-link" href={`#${link.name.toLowerCase()}`}>
-                    {link.name}
-                  </a>
-                </motion.li>
-              ))}
-            </motion.ul>
-          ) : null}
-        </AnimatePresence>
-      </div>
+    <>
+      <AnimatePresence>
+        {!navbarHidden ? (
+          <motion.div
+            initial="off"
+            animate="on"
+            exit="out"
+            variants={navAnim}
+            className="navbar"
+          >
+            <div className="navbar__logo">
+              <a href="/">copyboard</a>
+            </div>
+            <div className="navbar__menu">
+              <AnimatePresence exitBeforeEnter>
+                {menuActive ? (
+                  <motion.ul
+                    className="navbar__menu-lists"
+                    initial="hidden"
+                    animate="visible"
+                    exit="exit"
+                    variants={menuAnimation}
+                  >
+                    {links.map((link, i) => (
+                      <motion.li
+                        onClick={toggleMenu}
+                        key={i}
+                        variants={listActive}
+                        initial="hidden"
+                        animate="visible"
+                        exit="exit"
+                        custom={i}
+                      >
+                        <a
+                          className="nav-link"
+                          href={`#${link.name.toLowerCase()}`}
+                        >
+                          {link.name}
+                        </a>
+                      </motion.li>
+                    ))}
+                  </motion.ul>
+                ) : null}
+              </AnimatePresence>
+            </div>
 
-      <div
-        onClick={toggleMenu}
-        className={`${menuActive ? "active " : ""}navbar__burger`}
-      >
-        {Array(3)
-          .fill(1)
-          .map((item, i) => (
-            <span className={menuActive ? "active" : null} key={i}></span>
-          ))}
-      </div>
-    </div>
+            <div
+              onClick={toggleMenu}
+              className={`${menuActive ? "active " : ""}navbar__burger`}
+            >
+              {Array(3)
+                .fill(1)
+                .map((item, i) => (
+                  <span className={menuActive ? "active" : null} key={i}></span>
+                ))}
+            </div>
+          </motion.div>
+        ) : null}
+      </AnimatePresence>
+    </>
   );
 }
 
