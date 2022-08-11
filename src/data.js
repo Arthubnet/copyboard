@@ -1,4 +1,4 @@
-import olivia from "../src/assets/img/olivia.jpg";
+/* Old data */
 import taylor from "../src/assets/img/taylor.jpg";
 import okean from "../src/assets/img/okean.jpg";
 import alyona from "../src/assets/img/aloyna.jpg";
@@ -8,29 +8,50 @@ import shakira from "../src/assets/img/shakira.jpg";
 import shreya from "../src/assets/img/shreya.jpg";
 import carlos from "../src/assets/img/carlos.jpg";
 import armin from "../src/assets/img/armin.jpg";
+
+/* Hero */
+
+import heroFirst from "../src/assets/img/heroFirst.jpg";
+import heroSecond from "../src/assets/img/heroSecond.jpg";
+import heroThird from "../src/assets/img/heroThird.jpg";
+
+/* News */
 import hardy from "../src/assets/img/hardy.jpg";
+import willow from "../src/assets/img/willow.jpg";
+import hugh from "../src/assets/img/hugh.jpg";
+import olivia from "../src/assets/img/olivia.jpg";
 
 /* Hero */
 
 export let heroData = [
   {
-    src: "https://assets.teenvogue.com/photos/6228d78324ee50e5eeee2500/16:9/w_2560%2Cc_limit/1377055201",
-    journalist: "07/29/2022 &nbsp&nbsp&nbsp&nbsp By Andrew Unterberger",
-    title: "Woman of the year <span>Olivia Rodrigo</span> is writing new music",
-    footer: `With the biggest hit of 2021, the singer songwriter was just getting started.`,
+    id: 1,
+    imgUrl: heroFirst,
+    date: "07/23/2022",
+    author: "By Brandon Ridish",
+    title: `The dilemma of <span>British Vogue's</span> cover and Black representation`,
+    footer: `With the biggest hit of 2021, the singer songwriter was just getting
+        started.`,
   },
+
   {
-    src: "https://www.telekom.com/resource/image/494146/landscape_ratio4x3/1296/972/fbd84e9fc30a077d92048d7f26f88d7a/Km/bi-170510-gorillaz-en.jpg",
-    journalist: "07/25/2022 &nbsp&nbsp&nbsp&nbsp By Andrew Unterberger",
-    title: `Gorillaz release surprise new EP 'Meanwhile', celebrating Notting Hill Carnival`,
-    footer:
-      "With the biggest hit of 2021, the singer songwriter was just getting started.",
+    id: 2,
+    imgUrl: heroSecond,
+    date: "07/23/2022",
+    author: "By Brandon Ridish",
+    title: `How  <span>Peter Lindbergh</span> Changed Fashion Photography Forever`,
+    footer: `With the biggest hit of 2021, the singer songwriter was just getting
+        started.`,
   },
+
   {
-    src: "https://media.npr.org/assets/img/2021/11/10/will-smith-new-headshot-credit-lorenzo-agius_wide-fce30e30fbf83a2c586848fa991d1d61ab768cd2.jpg",
-    journalist: "06/23/2022 &nbsp&nbsp&nbsp&nbsp By Andrew Unterberger",
-    title: `Woman of the year <span>Olivia Rodrigo</span> is writing new music`,
-    footer: `With the biggest hit of 2021, the singer songwriter was just getting started.`,
+    id: 3,
+    imgUrl: heroThird,
+    date: "07/23/2022",
+    author: "By Brandon Ridish",
+    title: `<span>Padma Lakshmi's</span> Throwback Modeling Shots Are Timeless`,
+    footer: `With the biggest hit of 2021, the singer songwriter was just getting
+        started.`,
   },
 ];
 
@@ -39,21 +60,21 @@ export let heroData = [
 export let news = [
   {
     id: 1,
-    img: "https://www.biography.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:good%2Cw_1200/MTg0ODYwOTg5MDMwNjcxNDgw/gettyimages-1184956791.jpg",
+    img: olivia,
     title: `How Did Olivia Rodrigo Become The World's Biggest Pop Star? `,
     category: "Music",
     alt: "olivia",
   },
   {
     id: 2,
-    img: "https://static.independent.co.uk/s3fs-public/thumbnails/image/2014/01/21/17/Hugh-Jackman.jpg?width=1200",
+    img: hugh,
     title: `Hugh Jackman: Wolverine has not eclipsed my career`,
     category: "Movies",
     alt: "hugh",
   },
   {
     id: 3,
-    img: "https://assets.vogue.com/photos/5a19968e27e1b64a2a871d74/1:1/w_2165,h_2165,c_limit/GettyImages-852718898.jpg",
+    img: willow,
     title: `Willow Smith Gets Real About Growing Up With Famous Parents`,
     category: "Music",
     alt: "willow",
