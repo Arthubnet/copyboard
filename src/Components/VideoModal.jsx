@@ -3,7 +3,7 @@ import React, { useState, useRef, useEffect } from "react";
 import "./video-modal.styles.scss";
 
 import useWindowDimensions from "../Hooks/useWindowDimensions";
-
+import { ReactComponent as CloseBtn } from "../assets/img/close.svg";
 /* Framer Motion */
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -61,37 +61,48 @@ const VideoModal = ({ modalActive, setModalActive, videos }) => {
     exit: { opacity: 0, transition: { duration: 1 } },
   };
   return (
-    <AnimatePresence onExitComplete={onExit}>
-      {modalActive && (
-        <motion.div
-          className="modal"
-          key={1}
-          variants={moduleAnimation}
-          initial="hidden"
-          animate="visible"
-          exit="exit"
-        >
-          <div onClick={onClose} className="modal-close"></div>
+    <>
+      <AnimatePresence onExitComplete={onExit}>
+        {modalActive && (
           <motion.div
-            className="modal__inner"
-            key={2}
-            variants={videoAnimation}
+            className="modal"
+            key={1}
+            variants={moduleAnimation}
             initial="hidden"
             animate="visible"
             exit="exit"
             onAnimationComplete={onComplete}
           >
-            <video
-              ref={videoPlayer}
-              src={videos[0].path}
-              type="video/mp4"
-              controls
-              controlsList="nodownload noplaybackspeed"
-            />
+            <div onClick={onClose} className="modal-close"></div>
+            <motion.div
+              className="modal__inner"
+              key={2}
+              variants={videoAnimation}
+              initial="hidden"
+              animate="visible"
+              exit="exit"
+            >
+              <video
+                ref={videoPlayer}
+                src={videos[0].path}
+                type="video/mp4"
+                controls
+                controlsList="nodownload noplaybackspeed"
+              />
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1, transition: { duration: 1.5 } }}
+              exit={{ opacity: 0 }}
+              onClick={onClose}
+              className="modal-close-btn "
+            >
+              <CloseBtn />
+            </motion.div>
           </motion.div>
-        </motion.div>
-      )}
-    </AnimatePresence>
+        )}
+      </AnimatePresence>
+    </>
   );
 };
 

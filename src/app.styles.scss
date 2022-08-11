@@ -99,6 +99,17 @@ section {
   }
 }
 
+.modal-close-btn {
+  position: absolute;
+  top: 1.5%;
+  right: 1.5%;
+  cursor: pointer;
+  z-index: 12;
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
 /* Scrolbar */
 
 ::-webkit-scrollbar {

@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 
 import "./news-modal.styles.scss";
 import useWindowDimensions from "../Hooks/useWindowDimensions";
+import { ReactComponent as CloseBtn } from "../assets/img/close.svg";
 /* Framer Motion */
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -33,12 +34,12 @@ const NewsModal = ({ setModalActive, modalActive, modalNews }) => {
     <AnimatePresence onExitComplete={onExit}>
       {modalActive ? (
         <motion.div
+          className="news-modal"
           key={1}
           variants={newsModalAnimation}
           initial="hidden"
           animate="visible"
           exit="exit"
-          className="news-modal"
         >
           <div
             onClick={() => setModalActive(false)}
@@ -86,6 +87,12 @@ const NewsModal = ({ setModalActive, modalActive, modalNews }) => {
                 scelerisque viverra mauris. Faucibus in ornare quam viverra orci
                 sagittis eu volutpat. Odio ut sem nulla pharetra.
               </p>
+            </div>
+            <div
+              onClick={() => setModalActive(false)}
+              className="modal-close-btn "
+            >
+              <CloseBtn />
             </div>
           </div>
         </motion.div>
