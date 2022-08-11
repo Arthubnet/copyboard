@@ -18,6 +18,7 @@ const VideoModal = ({ modalActive, setModalActive, videos }) => {
   };
 
   let onClose = () => {
+    videoPlayer.current.volume = 0;
     setModalActive(false);
   };
 
