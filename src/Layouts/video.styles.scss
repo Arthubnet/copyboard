@@ -18,6 +18,9 @@
   overflow: hidden;
   cursor: pointer;
   z-index: 1;
+  @media all and (max-width: 1200px) {
+    width: 100%;
+  }
   .animated-block {
     position: absolute;
     height: 100%;

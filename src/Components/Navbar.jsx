@@ -1,53 +1,106 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 import "./navbar.styles.scss";
 
+import useWindowDimensions from "./../Hooks/useWindowDimensions";
+
+/* framer motion */
+import { motion, AnimatePresence } from "framer-motion";
+
+let links = [
+  { name: "News" },
+  { name: "Music" },
+  { name: "Video" },
+  { name: "Bands" },
+];
+
 function Navbar() {
+  let [menuActive, setActive] = useState(false);
+  let { width } = useWindowDimensions();
+
+  useEffect(() => {
+    if (menuActive) {
+      if (width > 800) {
+        document.body.style.overflow = "hidden";
+        document.body.style.paddingRight = "12px";
+      }
+    }
+  }, [menuActive]);
+
+  let onExit = () => {
+    if (!menuActive) {
+      document.body.style.overflow = "auto";
+      document.body.style.paddingRight = "0";
+    }
+  };
+
+  let menuAnimation = {
+    hidden: { x: "100%" },
+    visible: {
+      x: 0,
+      transition: {
+        duration: 0.3,
+      },
+    },
+    exit: { x: "100%" },
+  };
+
+  let listActive = {
+    hidden: { x: 150, opacity: 0 },
+    visible: (i) => ({
+      x: 0,
+      opacity: 1,
+      transition: { delay: 0.6 + i * 0.2, duration: 0.3 },
+    }),
+    exit: { x: 150, opacity: 0 },
+  };
+
+  let onClick = () => {
+    setActive((value) => !value);
+  };
+
   return (
     <div className="navbar">
       <div className="navbar__logo">
         <a href="/">copyboard</a>
       </div>
       <div className="navbar__menu">
-        <ul className="navbar__menu-lists">
-          <li>
-            <a className="nav-link" href="#news">
-              News
-            </a>
-          </li>
-          <li>
-            <a className="nav-link" href="#music">
-              Music
-            </a>
-          </li>
-          <li>
-            <a className="nav-link" href="#video">
-              Videos
-            </a>
-          </li>
-          <li>
-            <a className="nav-link" href="#bands">
-              Bands
-            </a>
-          </li>
-        </ul>
+        <AnimatePresence exitBeforeEnter>
+          {menuActive ? (
+            <motion.ul
+              onAnimationComplete={onExit}
+              className="navbar__menu-lists"
+              initial="hidden"
+              animate="visible"
+              variants={menuAnimation}
+            >
+              {links.map((link, i) => (
+                <motion.li
+                  key={i}
+                  variants={listActive}
+                  initial="hidden"
+                  animate="visible"
+                  custom={i}
+                >
+                  <a className="nav-link" href={`#${link.name.toLowerCase()}`}>
+                    {link.name}
+                  </a>
+                </motion.li>
+              ))}
+            </motion.ul>
+          ) : null}
+        </AnimatePresence>
       </div>
-      <div className="navbar__subscribe">
-        <input type="checkbox" id="subscribe" />
-        <label className="navbar__subscribe-btn" htmlFor="subscribe">
-          Subscribe
-        </label>
-        <div className="navbar__subscribe-field">
-          <input type="email" placeholder="Email Address" id="input" />
-          <label htmlFor="subscribe" className="subscribe-btn2">
-            Subscribe
-          </label>
-        </div>
-        <div className="navbar__burger">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
+
+      <div
+        onClick={onClick}
+        className={`${menuActive ? "active " : ""}navbar__burger`}
+      >
+        {Array(3)
+          .fill(1)
+          .map((item, i) => (
+            <span className={menuActive ? "active" : null} key={i}></span>
+          ))}
       </div>
     </div>
   );

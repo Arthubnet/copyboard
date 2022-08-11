@@ -2,10 +2,13 @@ import React, { useState, useRef, useEffect } from "react";
 
 import "./video-modal.styles.scss";
 
+import useWindowDimensions from "../Hooks/useWindowDimensions";
+
 /* Framer Motion */
 import { motion, AnimatePresence } from "framer-motion";
 
 const VideoModal = ({ modalActive, setModalActive, videos }) => {
+  let { width } = useWindowDimensions();
   let videoPlayer = useRef(null);
 
   let onComplete = () => {
@@ -20,8 +23,10 @@ const VideoModal = ({ modalActive, setModalActive, videos }) => {
 
   useEffect(() => {
     if (modalActive) {
-      document.body.style.overflow = "hidden";
-      document.body.style.paddingRight = "12px";
+      if (width > 800) {
+        document.body.style.overflow = "hidden";
+        document.body.style.paddingRight = "12px";
+      }
     }
   }, [modalActive]);
 

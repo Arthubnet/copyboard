@@ -1,7 +1,8 @@
 import React, { useEffect } from "react";
 
 import "./news-modal.styles.scss";
-
+import useWindowDimensions from "../Hooks/useWindowDimensions";
+/* Framer Motion */
 import { motion, AnimatePresence } from "framer-motion";
 
 const NewsModal = ({ setModalActive, modalActive, modalNews }) => {
@@ -13,11 +14,14 @@ const NewsModal = ({ setModalActive, modalActive, modalNews }) => {
     },
     exit: { opacity: 0 },
   };
+  let { width } = useWindowDimensions();
 
   useEffect(() => {
     if (modalActive) {
-      document.body.style.overflow = "hidden";
-      document.body.style.paddingRight = "12px";
+      if (width > 800) {
+        document.body.style.overflow = "hidden";
+        document.body.style.paddingRight = "12px";
+      }
     }
   }, [modalActive]);
 
