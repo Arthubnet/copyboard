@@ -50,6 +50,10 @@
           text-decoration: none;
           text-transform: uppercase;
           transition: color 0.3s;
+          @media all and (max-width: 700px) {
+            font-size: 2rem;
+            font-weight: 300;
+          }
           &:hover {
             color: var(--theme-color);
           }
@@ -83,50 +87,6 @@
     &.active {
       -webkit-transform: rotate(90deg);
       transform: rotate(90deg);
-    }
-  }
-}
-
-@media all and (max-width: 1450px) {
-  .navbar {
-    &__subscribe {
-      display: none;
-    }
-    &__burger {
-      display: block;
-      &.active {
-        -webkit-transform: rotate(90deg);
-        transform: rotate(90deg);
-      }
-    }
-    .navbar__menu {
-      &-lists {
-        position: absolute;
-        right: 0;
-        height: 92vh;
-        width: 100%;
-        top: 8vh;
-        background-color: black;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        gap: 5%;
-        transform: translate(101%);
-        transition: transform 0.5s ease-in;
-        li {
-          a {
-            color: white;
-            font-size: 3rem;
-            &:hover {
-              color: var(--theme-color);
-            }
-          }
-        }
-        &.nav-active {
-          transform: translate(0);
-        }
-      }
     }
   }
 }

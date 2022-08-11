@@ -12,6 +12,9 @@
   @include flex;
   z-index: 9;
   transition: transform 0.8s ease-in-out;
+  @media all and (max-width: 800px) {
+    width: 100%;
+  }
   @media all and (max-width: 450px) {
     height: 15vh;
   }
@@ -74,34 +77,12 @@
     gap: 5px;
     &__controls {
       @include flex;
-      gap: 50px;
+      gap: 70px;
       @media all and (max-width: 450px) {
-        gap: 20px;
+        gap: 40px;
       }
-      img {
-        width: 20px;
-        height: 20px;
-        &:hover {
-          cursor: pointer;
-          opacity: 0.8;
-        }
-        &:nth-child(2) {
-          width: 30px;
-          height: 30px;
-        }
-        &:active {
-          transform: scale(0.9);
-        }
-      }
-      @media all and (max-width: 450px) {
-        img {
-          width: 30px;
-          height: 30px;
-          &:nth-child(2) {
-            width: 40px;
-            height: 40px;
-          }
-        }
+      svg {
+        cursor: pointer;
       }
     }
     .progress-container {
@@ -152,18 +133,14 @@
     @media all and (max-width: 700px) {
       display: none;
     }
-    img {
-      width: 25px;
-      height: 25px;
-      margin-right: 15px;
-      &:hover {
-        cursor: pointer;
-        opacity: 0.8;
-      }
-      &:active {
-        transform: scale(0.9);
-      }
+    .volume-btn {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-right: 12px;
+      cursor: pointer;
     }
+
     .progress-volume {
       width: 30%;
       height: 4px;
@@ -201,6 +178,16 @@
       .volumeSlider-thumb:hover {
         box-shadow: 0 0 0 8px var(--main-color-hover);
       }
+    }
+  }
+  .btn {
+    @include flex;
+    transition: 0.3s;
+    &:hover {
+      opacity: 0.8;
+    }
+    &:active {
+      transform: scale(0.9);
     }
   }
 }

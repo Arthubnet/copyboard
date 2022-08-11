@@ -1,16 +1,17 @@
 import React, { useState, useEffect } from "react";
 
 import "./music-player.styles.scss";
-/* Icons */
-import prevBtn from "../assets/img/backward-step-solid.svg";
-import nextBtn from "../assets/img/forward-step-solid.svg";
-import playBtn from "../assets/img/circle-play-solid.svg";
-import pauseBtn from "../assets/img/circle-pause-solid.svg";
-import volumeBtn from "../assets/img/volume-high-solid.svg";
-import closeBtn from "../assets/img/close-white.svg";
 
 /* slider */
 import ReactSlider from "react-slider";
+
+import { IoPlaySharp } from "react-icons/io5";
+import { IoPauseOutline } from "react-icons/io5";
+import { IoPlaySkipBackSharp } from "react-icons/io5";
+import { IoPlaySkipForwardSharp } from "react-icons/io5";
+import { BsArrowDown } from "react-icons/bs";
+import { IoVolumeHighSharp } from "react-icons/io5";
+import { IoVolumeOffSharp } from "react-icons/io5";
 
 import { calculateDuration } from "../Layouts/Music";
 
@@ -64,27 +65,25 @@ function MusicPlayer({
         </div>
         <div className="player-main">
           <div className="player-main__controls">
-            <img
-              onClick={prevSong}
-              className="prevBtn"
-              src={prevBtn}
-              alt="previous"
-              title="Previous"
-            />
-            <img
-              onClick={togglePlay}
-              className="playBtn"
-              src={isPlaying ? pauseBtn : playBtn}
-              alt="play"
+            <div title="Previous" className="prevBtn btn" onClick={prevSong}>
+              <IoPlaySkipBackSharp size={20} />
+            </div>
+
+            <div
               title={isPlaying ? "Pause" : "Play"}
-            />
-            <img
-              onClick={nextSong}
-              className="nextBtn"
-              src={nextBtn}
-              alt="next"
-              title="Next"
-            />
+              className="playBtn btn"
+              onClick={togglePlay}
+            >
+              {isPlaying ? (
+                <IoPauseOutline size={24} />
+              ) : (
+                <IoPlaySharp size={24} />
+              )}
+            </div>
+
+            <div title="Next" className="nextBtn btn" onClick={nextSong}>
+              <IoPlaySkipForwardSharp size={20} />
+            </div>
           </div>
           <div className="progress-container">
             <span>{calculateDuration(currentTime)}</span>
@@ -101,12 +100,13 @@ function MusicPlayer({
           </div>
         </div>
         <div className="player__volume">
-          <img
-            onClick={toggleMute}
-            className="volumeBtn"
-            src={volumeBtn}
-            alt="volume"
-          />
+          <div onClick={toggleMute} className="volume-btn btn">
+            {volume !== 0 ? (
+              <IoVolumeHighSharp size={20} />
+            ) : (
+              <IoVolumeOffSharp size={20} />
+            )}
+          </div>
           <div className="progress-volume">
             <ReactSlider
               min={0}
@@ -120,7 +120,7 @@ function MusicPlayer({
           </div>
         </div>
         <div onClick={onClosePlayer} className="closeBtn">
-          <img src={closeBtn} alt="close" />
+          <BsArrowDown />
         </div>
       </div>
     </div>
