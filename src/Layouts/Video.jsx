@@ -23,18 +23,24 @@ function Video({ player, setMusicPlayerActive }) {
     setModalActive(true);
     setMusicPlayerActive((a) => false);
   };
+
+  let inViewAnim = {
+    on: { y: 50, opacity: 0 },
+    off: {
+      y: 0,
+      opacity: 1,
+      transition: { duration: 1, easings: [0, 0.71, 0.2, 1.01] },
+    },
+  };
   return (
     <Wrapper id="video" title="Video">
       <div ref={ref} className="video">
         <>
           {isInView ? (
             <motion.div
-              initial={{ y: 50, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{
-                duration: 1,
-                easings: [0, 0.71, 0.2, 1.01],
-              }}
+              variants={inViewAnim}
+              initial="on"
+              animate="off"
               className="video__image-container"
             >
               <img
