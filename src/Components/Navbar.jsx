@@ -6,6 +6,7 @@ import useWindowDimensions from "./../Hooks/useWindowDimensions";
 
 /* framer motion */
 import { motion, AnimatePresence } from "framer-motion";
+import { type } from "@testing-library/user-event/dist/type";
 
 let links = [
   { name: "News" },
@@ -25,8 +26,10 @@ function Navbar() {
         document.body.style.paddingRight = "12px";
       }
     } else if (!menuActive) {
-      document.body.style.overflow = "auto";
-      document.body.style.paddingRight = "0";
+      setTimeout(() => {
+        document.body.style.overflow = "auto";
+        document.body.style.paddingRight = "0";
+      }, 1000);
     }
   }, [menuActive]);
 
@@ -41,7 +44,8 @@ function Navbar() {
     exit: {
       opacity: 0,
       transition: {
-        duration: 0.8,
+        duration: 0.6,
+        easings: [0, 0.71, 0.2, 1.01],
       },
     },
   };
