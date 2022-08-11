@@ -121,9 +121,7 @@
         /* color of the track before the thumb */
         background: #fff;
       }
-      .customSlider-track:hover .customSlider-track {
-        background: red;
-      }
+
       .customSlider-thumb {
         cursor: pointer;
         /*color for the thumb */
@@ -172,15 +170,36 @@
       background: #333333;
       border-radius: 5px;
       cursor: pointer;
-      &__inner {
+      .volumeSlider {
         width: 100%;
-        background: #fff;
-        border-radius: 5px;
-        height: 100%;
+        cursor: pointer;
         transition: width 0.1s linear;
       }
-      &:hover .progress-volume__inner {
-        background: var(--theme-color);
+      .volumeSlider-track {
+        background: #333;
+        height: 4px;
+        border-radius: 5px;
+      }
+      .volumeSlider-track.volumeSlider-track-0 {
+        /* color of the track before the thumb */
+        background: #fff;
+      }
+
+      .volumeSlider-thumb {
+        cursor: pointer;
+        /*color for the thumb */
+        background: #fff;
+        /* shape of the thumb: circle */
+        width: 13px;
+        height: 13px;
+        border-radius: 100%;
+        /* remove default outline when selected */
+        outline: none;
+        top: -5px;
+      }
+
+      .volumeSlider-thumb:hover {
+        box-shadow: 0 0 0 8px var(--main-color-hover);
       }
     }
   }

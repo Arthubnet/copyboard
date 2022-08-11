@@ -6,8 +6,6 @@ import "./music.styles.scss";
 import Wrapper from "../Components/Wrapper";
 import Song from "./../Components/Song";
 import MusicPlayer from "./../Components/MusicPlayer";
-/* Render hook */
-import { useUpdateEffect } from "react-use";
 
 export function calculateDuration(songSeconds) {
   let minutes = Math.floor(songSeconds / 60);
@@ -20,7 +18,6 @@ export function calculateDuration(songSeconds) {
 function Music({
   count,
   setCount,
-  setVideoCount,
   playerActive,
   setPlayerActive,
   setIsPlaying,
@@ -28,7 +25,6 @@ function Music({
   player,
   songs,
   setCurrentTime,
-  setDuration,
   currentTime,
   duration,
 }) {
@@ -62,20 +58,6 @@ function Music({
       setCount((count += 1));
     }
   };
-  /* Responsible for isActive too */
-  let onCanPlay = () => {
-    if (isPlaying) {
-      player.current.play();
-    }
-  };
-
-  let onTimeUpdate = () => {
-    setCurrentTime(player.current.currentTime);
-  };
-
-  let onLoadMeta = () => {
-    setDuration(player.current.duration + 3);
-  };
 
   let specificSong = (id) => {
     if (!isPlaying) {
@@ -106,21 +88,8 @@ function Music({
     setPlayerActive(false);
   };
 
-  let onDurationChange = () => {
-    player.current.pause();
-  };
   return (
     <Wrapper id="music" title="Songs of the Week">
-      {/* <audio
-        type="audio/mpeg"
-        ref={player}
-        src={count ? songs[count].link : null}
-        onCanPlay={onCanPlay}
-        onEnded={nextSong}
-        onTimeUpdate={onTimeUpdate}
-        onLoadedMetadata={onLoadMeta}
-        onEmptied={onDurationChange}
-      ></audio> */}
       <div className="music__list">
         {songs
           .filter((item, i) => i > 0)
@@ -146,6 +115,7 @@ function Music({
         nextSong={nextSong}
         onClosePlayer={onClosePlayer}
         playerActive={playerActive}
+        player={player}
       />
     </Wrapper>
   );

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 import "./music-player.styles.scss";
 /* Icons */
@@ -26,7 +26,28 @@ function MusicPlayer({
   togglePlay,
   prevSong,
   nextSong,
+  player,
 }) {
+  let [volume, setVolume] = useState(1);
+  let [savedVolume, setSavedVolume] = useState();
+
+  useEffect(() => {
+    player.current.volume = volume;
+  }, [volume]);
+
+  let onVolumeChange = (value) => {
+    setVolume(value);
+  };
+
+  let toggleMute = () => {
+    if (player.current.volume > 0) {
+      setSavedVolume(volume);
+      setVolume(0);
+    } else if (player.current.volume === 0) {
+      setVolume(savedVolume);
+    }
+  };
+
   return (
     <div className={`${playerActive ? "active " : ""}player`}>
       <div className="player__container">
@@ -80,9 +101,22 @@ function MusicPlayer({
           </div>
         </div>
         <div className="player__volume">
-          <img className="volumeBtn" src={volumeBtn} alt="volume" />
+          <img
+            onClick={toggleMute}
+            className="volumeBtn"
+            src={volumeBtn}
+            alt="volume"
+          />
           <div className="progress-volume">
-            <div className="progress-volume__inner"></div>
+            <ReactSlider
+              min={0}
+              max={100}
+              value={parseInt(volume * 100)}
+              onChange={(value) => onVolumeChange(value / 100)}
+              className="volumeSlider"
+              trackClassName="volumeSlider-track"
+              thumbClassName="volumeSlider-thumb"
+            />
           </div>
         </div>
         <div onClick={onClosePlayer} className="closeBtn">
