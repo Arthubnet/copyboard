@@ -1,9 +1,22 @@
+import React, { FC } from "react";
 import "./band-cards.styles.scss";
 
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 
-function BandsCard({ band, count, setCount, delay }) {
-  let cardAnim = {
+type Props = {
+  band: {
+    id: any;
+    title: string;
+    author: string;
+    time: number;
+  };
+  count: number;
+  setCount: (id: number | string) => void;
+  delay: number;
+};
+
+const BandsCard: FC<Props> = ({ band, count, setCount, delay }) => {
+  let cardAnim: Variants = {
     on: { x: 30, opacity: 0 },
     off: {
       x: 0,
@@ -29,6 +42,6 @@ function BandsCard({ band, count, setCount, delay }) {
       </div>
     </motion.div>
   );
-}
+};
 
 export default BandsCard;
