@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, FC } from "react";
 
 import "./music-player.styles.scss";
 
@@ -12,10 +12,24 @@ import { IoPlaySkipForwardSharp } from "react-icons/io5";
 import { BsArrowDown } from "react-icons/bs";
 import { IoVolumeHighSharp } from "react-icons/io5";
 import { IoVolumeOffSharp } from "react-icons/io5";
-
 import { calculateDuration } from "../Layouts/Music";
 
-function MusicPlayer({
+type Props = {
+  isPlaying: boolean;
+  duration: any;
+  songs: any;
+  count: any;
+  onRewind: (value: any) => void;
+  currentTime: any;
+  onClosePlayer: () => void;
+  playerActive: boolean;
+  togglePlay: () => void;
+  prevSong: () => void;
+  nextSong: () => void;
+  player: any;
+};
+
+let MusicPlayer: FC<Props> = ({
   isPlaying,
   duration,
   songs,
@@ -28,15 +42,15 @@ function MusicPlayer({
   prevSong,
   nextSong,
   player,
-}) {
-  let [volume, setVolume] = useState(1);
-  let [savedVolume, setSavedVolume] = useState();
+}) => {
+  let [volume, setVolume] = useState<number>(1);
+  let [savedVolume, setSavedVolume] = useState<any>();
 
   useEffect(() => {
     player.current.volume = volume;
   }, [volume]);
 
-  let onVolumeChange = (value) => {
+  let onVolumeChange = (value: number) => {
     setVolume(value);
   };
 
@@ -89,7 +103,7 @@ function MusicPlayer({
             <span>{calculateDuration(currentTime)}</span>
             <ReactSlider
               min={0}
-              max={duration ? parseInt(duration) : null}
+              max={duration && parseInt(duration)}
               value={parseInt(currentTime)}
               onChange={(value) => onRewind(value)}
               className="customSlider"
@@ -111,7 +125,7 @@ function MusicPlayer({
             <ReactSlider
               min={0}
               max={100}
-              value={parseInt(volume * 100)}
+              value={volume * 100}
               onChange={(value) => onVolumeChange(value / 100)}
               className="volumeSlider"
               trackClassName="volumeSlider-track"
@@ -125,6 +139,6 @@ function MusicPlayer({
       </div>
     </div>
   );
-}
+};
 
 export default MusicPlayer;

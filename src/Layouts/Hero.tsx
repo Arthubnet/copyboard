@@ -11,7 +11,7 @@ import { motion } from "framer-motion";
 
 function Hero() {
   const { width } = useWindowDimensions();
-  let [currentImage, setCurrentImage] = useState(0);
+  let [currentImage, setCurrentImage] = useState<number>(0);
 
   return (
     <section id="hero" className="hero">

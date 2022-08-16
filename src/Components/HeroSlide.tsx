@@ -4,18 +4,20 @@ import "./hero-slide.styles.scss";
 /* Parse */
 import parse from "html-react-parser";
 
+interface heroData {
+  id: number;
+  imgUrl: any;
+  date: string;
+  author: string;
+  title: string;
+  footer: string;
+}
+
 type Props = {
-  slide: {
-    date: number;
-    imgUrl: string;
-    author: string;
-    title: string;
-    footer: string;
-    id: number;
-  };
+  slide: heroData;
   currentImage: number;
-  setCurrentImage: (value: number) => number;
-  heroData: [];
+  setCurrentImage: (value: number) => void;
+  heroData: any;
 };
 
 let HeroSlide: FC<Props> = ({
