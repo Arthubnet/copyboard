@@ -1,0 +1,33 @@
+.news-container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 6%;
+
+  .new-container {
+    width: 44%;
+    position: relative;
+    .image {
+      font-size: 0;
+      overflow: hidden;
+      cursor: pointer;
+      img {
+        width: 100%;
+      }
+    }
+  }
+  .margin {
+    margin-top: 6rem;
+  }
+  @media all and (max-width: 700px) {
+    flex-direction: column;
+    gap: 50px;
+    .new-container {
+      width: 100%;
+    }
+    .margin {
+      margin: 0;
+    }
+  }
+}
