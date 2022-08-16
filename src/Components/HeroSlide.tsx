@@ -1,10 +1,29 @@
-import React, { useState, useEffect } from "react";
+import React, { FC } from "react";
 
 import "./hero-slide.styles.scss";
 /* Parse */
 import parse from "html-react-parser";
 
-function HeroSlide({ slide, setCurrentImage, currentImage, heroData }) {
+type Props = {
+  slide: {
+    date: number;
+    imgUrl: string;
+    author: string;
+    title: string;
+    footer: string;
+    id: number;
+  };
+  currentImage: number;
+  setCurrentImage: (value: number) => number;
+  heroData: [];
+};
+
+let HeroSlide: FC<Props> = ({
+  slide,
+  setCurrentImage,
+  currentImage,
+  heroData,
+}) => {
   return (
     <div className="hero__slider__slide">
       <img className="hero-background" src={slide.imgUrl} alt="hero" />
@@ -37,6 +56,6 @@ function HeroSlide({ slide, setCurrentImage, currentImage, heroData }) {
       </div>
     </div>
   );
-}
+};
 
 export default HeroSlide;

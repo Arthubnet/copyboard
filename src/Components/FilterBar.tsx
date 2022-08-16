@@ -1,8 +1,17 @@
-import React from "react";
+import React, { FC } from "react";
 
 import "./filter-bar.styles.scss";
 
-function FilterBar({ item, countSet, count, type }) {
+type Props = {
+  item: {
+    id: number;
+  };
+  countSet: (id: any) => void;
+  count: number;
+  type: string;
+};
+
+const FilterBar: FC<Props> = ({ item, countSet, count, type }) => {
   return (
     <div className="filter-bar">
       <button
@@ -13,6 +22,6 @@ function FilterBar({ item, countSet, count, type }) {
       </button>
     </div>
   );
-}
+};
 
 export default FilterBar;

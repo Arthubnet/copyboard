@@ -11,7 +11,7 @@ type Props = {
     time: number;
   };
   count: number;
-  setCount: (id: number | string) => void;
+  setCount: (id: number) => number;
   delay: number;
 };
 

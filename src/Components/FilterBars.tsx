@@ -1,15 +1,20 @@
-import React from "react";
+import React, { FC } from "react";
 
 import "./filter-bars.styles.scss";
 import FilterBar from "./FilterBar";
 import { newsData } from "../data";
 
-function FilterBars({ countSet, count }) {
+type Props = {
+  countSet: (id: number) => void;
+  count: number;
+};
+
+const FilterBars: FC<Props> = ({ countSet, count }) => {
   return (
     <div className="filter-bars">
       {newsData
-        .filter((a, i) => i > 0)
-        .map((item, index) => (
+        .filter((_: any, i: number) => i > 0)
+        .map((item: any) => (
           <FilterBar
             key={item.id}
             countSet={countSet}
@@ -20,6 +25,6 @@ function FilterBars({ countSet, count }) {
         ))}
     </div>
   );
-}
+};
 
 export default FilterBars;
