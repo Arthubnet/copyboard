@@ -1,24 +1,30 @@
-import React, { useRef } from "react";
+import React, { useRef, FC } from "react";
 
 import "./music.styles.scss";
 
 /* Components */
 import Wrapper from "../Components/Wrapper";
-import Song from "./../Components/Song";
-import MusicPlayer from "./../Components/MusicPlayer";
+import Song from "../Components/Song";
+import MusicPlayer from "../Components/MusicPlayer";
 
 /* Motion */
 import { motion, useInView } from "framer-motion";
 
-export function calculateDuration(songSeconds) {
-  let minutes = Math.floor(songSeconds / 60);
-  let returnedMinutes = minutes < 10 ? `0${minutes}` : `${minutes}`;
-  let seconds = Math.floor(songSeconds % 60);
-  let returnedSeconds = seconds < 10 ? `0${seconds}` : `${seconds}`;
-  return `${returnedMinutes}:${returnedSeconds}`;
-}
+type Props = {
+  count: number;
+  setCount: (value: number) => void;
+  playerActive: boolean;
+  setPlayerActive: (value: boolean) => void;
+  setIsPlaying: (value: boolean) => void;
+  isPlaying: boolean;
+  player: any;
+  songs: any;
+  setCurrentTime: (value: number) => void;
+  currentTime: number;
+  duration: number;
+};
 
-function Music({
+let Music: FC<Props> = ({
   count,
   setCount,
   playerActive,
@@ -30,7 +36,7 @@ function Music({
   setCurrentTime,
   currentTime,
   duration,
-}) {
+}) => {
   let ref = useRef(null);
   let isInView = useInView(ref, { once: true });
 
@@ -65,7 +71,7 @@ function Music({
     }
   };
 
-  let specificSong = (id) => {
+  let specificSong = (id: number) => {
     if (!isPlaying) {
       setIsPlaying(true);
       if (id !== count) {
@@ -85,7 +91,7 @@ function Music({
     }
   };
 
-  let onRewind = (value) => {
+  let onRewind = (value: number) => {
     setCurrentTime(value);
     player.current.currentTime = value;
   };
@@ -98,8 +104,8 @@ function Music({
     <Wrapper id="music" title="Songs of the Week">
       <motion.div ref={ref} className="music__list">
         {songs
-          .filter((item, i) => i > 0)
-          .map((song, i) => (
+          .filter((item: any, i: number) => i > 0)
+          .map((song: any, i: number) => (
             <Song
               key={song.id}
               song={song}
@@ -127,6 +133,6 @@ function Music({
       />
     </Wrapper>
   );
-}
+};
 
 export default Music;

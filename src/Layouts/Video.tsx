@@ -1,27 +1,32 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, FC } from "react";
 
 import "./video.styles.scss";
 /* Components */
 import Wrapper from "../Components/Wrapper";
-import VideoModal from "./../Components/VideoModal";
+import VideoModal from "../Components/VideoModal";
 
 /* Data */
 import { videosData } from "../data";
 
-/* Icon */
-import playBtn from "../assets/img/play.png";
-
 /* Framer Motion */
 import { motion, useInView } from "framer-motion";
 
-function Video({ player, setMusicPlayerActive }) {
-  let [modalActive, setModalActive] = useState(false);
+/* Icon */
+const playBtn = require("../assets/img/play.png");
+
+type Props = {
+  player: any;
+  setMusicPlayerActive: (value: boolean) => void;
+};
+
+let Video: FC<Props> = ({ player, setMusicPlayerActive }) => {
+  let [modalActive, setModalActive] = useState<boolean>(false);
   let ref = useRef(null);
   let isInView = useInView(ref, { once: true });
   let onOpenVideo = () => {
     player.current.pause();
     setModalActive(true);
-    setMusicPlayerActive((a) => false);
+    setMusicPlayerActive(false);
   };
 
   let inViewAnim = {
@@ -62,6 +67,6 @@ function Video({ player, setMusicPlayerActive }) {
       />
     </Wrapper>
   );
-}
+};
 
 export default Video;

@@ -12,7 +12,7 @@ import { IoPlaySkipForwardSharp } from "react-icons/io5";
 import { BsArrowDown } from "react-icons/bs";
 import { IoVolumeHighSharp } from "react-icons/io5";
 import { IoVolumeOffSharp } from "react-icons/io5";
-import { calculateDuration } from "../Layouts/Music";
+import { calculateDuration } from "../Layouts/Media";
 
 type Props = {
   isPlaying: boolean;

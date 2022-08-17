@@ -11,7 +11,7 @@ import { moreNewsData } from "../data";
 import { motion, useInView } from "framer-motion";
 
 function MoreNews() {
-  let [modalActive, setModalActive] = useState(false);
+  let [modalActive, setModalActive] = useState<boolean>(false);
   let [modalNews, setModalNews] = useState();
   let ref = useRef(null);
   let isInView = useInView(ref, { once: true });
