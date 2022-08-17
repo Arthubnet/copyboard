@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 
 import "./navbar.styles.scss";
 
-import useWindowDimensions from "./../Hooks/useWindowDimensions";
+import useWindowDimensions from "../Hooks/useWindowDimensions";
 
 /* framer motion */
 import { motion, AnimatePresence } from "framer-motion";
@@ -15,11 +15,11 @@ let links = [
 ];
 
 function Navbar() {
-  let [menuActive, setMenutActive] = useState(false);
+  let [menuActive, setMenutActive] = useState<boolean>(false);
   let { width } = useWindowDimensions();
-  let [navbarHidden, setNavbarHidden] = useState(false);
+  let [navbarHidden, setNavbarHidden] = useState<boolean>(false);
   /* Hiding navbar */
-  let lastScroll;
+  let lastScroll: number;
   let currentScroll;
 
   window.addEventListener("scroll", () => {
@@ -65,7 +65,7 @@ function Navbar() {
 
   let listActive = {
     hidden: { x: 150, opacity: 0 },
-    visible: (i) => ({
+    visible: (i: number) => ({
       x: 0,
       opacity: 1,
       transition: { delay: 0.6 + i * 0.2, duration: 0.3 },
@@ -138,7 +138,10 @@ function Navbar() {
               {Array(3)
                 .fill(1)
                 .map((item, i) => (
-                  <span className={menuActive ? "active" : null} key={i}></span>
+                  <span
+                    className={menuActive ? "active" : undefined}
+                    key={i}
+                  ></span>
                 ))}
             </div>
           </motion.div>

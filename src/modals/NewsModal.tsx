@@ -4,22 +4,22 @@ import "./news-modal.styles.scss";
 
 function NewsModal() {
   return (
-    <div class="modal">
-      <div class="modal-background">
-        <div class="modal-container">
+    <div className="modal">
+      <div className="modal-background">
+        <div className="modal-container">
           <h2>
             Sanjeevani Bhelande to perform a live virtual concert this Sunday
           </h2>
-          <div class="journalist">
+          <div className="journalist">
             <p>07/23/2022</p>
             <p>By Brandon Ridish</p>
           </div>
           <img
-            class="news-modal-picture"
+            className="news-modal-picture"
             src="https://sl.sbs.com.au/public/image/file/f669fea1-434c-4b0a-9633-df2a71935466/crop/16x9"
             alt="Sanjeevani"
           />
-          <div class="modal-paragraph">
+          <div className="modal-paragraph">
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis
@@ -50,7 +50,7 @@ function NewsModal() {
               volutpat. Odio ut sem nulla pharetra.
             </p>
           </div>
-          <img class="modal-close" src="assets/img/close.svg" alt="close" />
+          <img className="modal-close" src="assets/img/close.svg" alt="close" />
         </div>
       </div>
     </div>
