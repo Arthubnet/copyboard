@@ -1,6 +1,13 @@
+import React, { FC } from "react";
 import "./wrapper.styles.scss";
 
-function Wrapper({ id, title, children }) {
+type Props = {
+  id: string;
+  title: string;
+  children: any;
+};
+
+let Wrapper: FC<Props> = ({ id, title, children }) => {
   return (
     <section id={id}>
       <div className="container">
@@ -9,6 +16,6 @@ function Wrapper({ id, title, children }) {
       </div>
     </section>
   );
-}
+};
 
 export default Wrapper;

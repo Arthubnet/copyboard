@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import React from "react";
 import "./app.styles.scss";
 
 /* Components */
