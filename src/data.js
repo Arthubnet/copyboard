@@ -320,24 +320,24 @@ export let moreNewsData = [
   {},
   {
     id: 1,
-    genre: "MODELS",
-    title: `The models that turned Instagram into their DIY catwalk `,
     img: moreNews1,
+    title: `The models that turned Instagram into their DIY catwalk `,
+    category: "MODELS",
     alt: "sriya",
   },
 
   {
     id: 2,
-    genre: "MODELS",
-    title: `How Pooja Mor is Bringing Her Indian Culture to Modeling`,
     img: moreNews2,
+    title: `How Pooja Mor is Bringing Her Indian Culture to Modeling`,
+    category: "MODELS",
     alt: "brad",
   },
   {
     id: 3,
-    genre: "MODELS",
-    title: `Kelsey Merritt is our (role) model on and off the runway`,
     img: moreNews3,
+    title: `Kelsey Merritt is our (role) model on and off the runway`,
+    category: "MODELS",
     alt: "nayeon",
   },
 ];

@@ -3,6 +3,7 @@
     "jsx": "react",
     "lib": ["ES6", "DOM"],
     "allowJs": true,
+
     /* Visit https://aka.ms/tsconfig to read more about this file */
 
     /* Projects */

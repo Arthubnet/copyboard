@@ -10,9 +10,17 @@ import { moreNewsData } from "../data";
 
 import { motion, useInView } from "framer-motion";
 
+type ANew = {
+  id: number;
+  img: any;
+  title: string;
+  category: string;
+  alt: string;
+};
+
 function MoreNews() {
   let [modalActive, setModalActive] = useState<boolean>(false);
-  let [modalNews, setModalNews] = useState();
+  let [modalNews, setModalNews] = useState<ANew>();
   let ref = useRef(null);
   let isInView = useInView(ref, { once: true });
 
@@ -23,7 +31,7 @@ function MoreNews() {
           {isInView &&
             moreNewsData
               .filter((a, i) => i > 0)
-              .map((item, i) => (
+              .map((item: any, i) => (
                 <motion.div
                   initial={{ y: 50, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
@@ -32,6 +40,7 @@ function MoreNews() {
                     delay: (i + 1) * 0.15,
                     easings: [0, 0.71, 0.2, 1.01],
                   }}
+                  key={i}
                 >
                   <NewsItem
                     key={i}

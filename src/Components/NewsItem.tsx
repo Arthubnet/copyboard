@@ -1,11 +1,25 @@
-import React from "react";
+import React, { FC } from "react";
 
 import "./news-item.styles.scss";
 
 /* Framer Motion */
 import { motion } from "framer-motion";
 
-function NewsItem({ item, setModalActive, setModalNews }) {
+type ANew = {
+  id: number;
+  img: any;
+  title: string;
+  category: string;
+  alt: string;
+};
+
+type Props = {
+  item: ANew;
+  setModalActive: (value: boolean) => void;
+  setModalNews: (value: ANew) => void;
+};
+
+let NewsItem: FC<Props> = ({ item, setModalActive, setModalNews }) => {
   let onOpenModal = () => {
     setModalActive(true);
     setModalNews(item);
@@ -22,11 +36,11 @@ function NewsItem({ item, setModalActive, setModalNews }) {
         />
       </div>
       <div className="news-title">
-        <h4>{item.genre}</h4>
+        <h4>{item.category}</h4>
         <h3>{item.title}</h3>
       </div>
     </motion.div>
   );
-}
+};
 
 export default NewsItem;

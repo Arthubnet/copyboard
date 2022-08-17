@@ -15,9 +15,7 @@ function Bands() {
   let isInView: any = useInView(ref, { once: true });
 
   /* Framer motion */
-  useEffect(() => {
-    console.log(isInView);
-  }, [isInView]);
+  useEffect(() => {}, [isInView]);
   let scaleAnim = {
     on: { scale: 1.4 },
     off: {
@@ -44,8 +42,8 @@ function Bands() {
   let promoOnView: Variants = {
     on: { y: 50, opacity: 0 },
     off: {
-      y: isInView && 0,
-      opacity: isInView && 1,
+      y: isInView ? 0 : 1,
+      opacity: isInView ? 1 : 0,
       transition: {
         duration: 1,
         easing: [0, 0.71, 0.2, 1.01],

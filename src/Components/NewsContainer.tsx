@@ -1,14 +1,28 @@
-import React, { useEffect } from "react";
+import React, { FC } from "react";
 import "./news-container.styles.scss";
 
-import { newsData } from "../data";
+import { news } from "../data";
 
 import NewsColumn from "./NewsColumn";
 
 /* Framer Motion */
 import { motion, AnimatePresence } from "framer-motion";
 
-function NewsContainer({ count, setModalActive, setModalNews }) {
+type ANew = {
+  id: number;
+  img: any;
+  title: string;
+  category: string;
+  alt: string;
+};
+
+type Props = {
+  count: number;
+  setModalActive: (value: boolean) => void;
+  setModalNews: (value: ANew) => void;
+};
+
+let NewsContainer: FC<Props> = ({ count, setModalActive, setModalNews }) => {
   let animateContainer = {
     hidden: { opacity: 0 },
     visible: {
@@ -29,9 +43,9 @@ function NewsContainer({ count, setModalActive, setModalNews }) {
 
   return (
     <AnimatePresence exitBeforeEnter>
-      {newsData
+      {news
         .filter((a, i) => i === count)
-        .map((container) => (
+        .map((container: any) => (
           <motion.div
             key={count}
             variants={animateContainer}
@@ -40,7 +54,7 @@ function NewsContainer({ count, setModalActive, setModalNews }) {
             exit="exit"
             className="news__container"
           >
-            {container.data.map((item, index) => (
+            {container.data.map((item: ANew, index: number) => (
               <NewsColumn
                 key={index}
                 item={item}
@@ -52,6 +66,6 @@ function NewsContainer({ count, setModalActive, setModalNews }) {
         ))}
     </AnimatePresence>
   );
-}
+};
 
 export default NewsContainer;

@@ -1,12 +1,27 @@
-import React, { useEffect } from "react";
+import React, { useEffect, FC } from "react";
 
 import "./news-modal.styles.scss";
 import useWindowDimensions from "../Hooks/useWindowDimensions";
-import { ReactComponent as CloseBtn } from "../assets/img/close.svg";
 /* Framer Motion */
 import { motion, AnimatePresence } from "framer-motion";
+/* import { ReactComponent as CloseBtn } from "../assets/img/close.svg"; */
+const closeBtn: string = require("../assets/img/close.svg").default;
 
-const NewsModal = ({ setModalActive, modalActive, modalNews }) => {
+type ANew = {
+  id: number;
+  img: any;
+  title: string;
+  category: string;
+  alt: string;
+};
+
+type Props = {
+  setModalActive: (value: boolean) => void;
+  modalNews: ANew | undefined;
+  modalActive: boolean;
+};
+
+const NewsModal: FC<Props> = ({ setModalActive, modalActive, modalNews }) => {
   let newsModalAnimation = {
     hidden: { opacity: 0 },
     visible: {
@@ -46,15 +61,15 @@ const NewsModal = ({ setModalActive, modalActive, modalNews }) => {
             className="background-close"
           ></div>
           <div className="news-modal__inner">
-            <h2>{modalNews.title}</h2>
+            <h2>{modalNews?.title}</h2>
             <div className="journalist">
               <p className="author">By Brandon Ridish</p>
               <p>07/23/2022</p>
             </div>
             <img
               className="news-modal-picture"
-              src={modalNews.img}
-              alt={modalNews.alt}
+              src={modalNews?.img}
+              alt={modalNews?.alt}
             />
             <div className="modal-paragraph">
               <p>
@@ -92,7 +107,7 @@ const NewsModal = ({ setModalActive, modalActive, modalNews }) => {
               onClick={() => setModalActive(false)}
               className="modal-close-btn "
             >
-              <CloseBtn />
+              <img src={closeBtn} alt="close"></img>
             </div>
           </div>
         </motion.div>
