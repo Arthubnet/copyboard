@@ -1,10 +1,26 @@
-import React from "react";
+import React, { FC } from "react";
 
 import "./song.styles.scss";
-
+/* Framer Motion */
 import { motion } from "framer-motion";
 
-function Song({ song, specificSong, isPlaying, count, isInView, delay }) {
+type Props = {
+  song: any;
+  specificSong: any;
+  isPlaying: boolean;
+  count: number;
+  isInView: boolean;
+  delay: number;
+};
+
+let Song: FC<Props> = ({
+  song,
+  specificSong,
+  isPlaying,
+  count,
+  isInView,
+  delay,
+}) => {
   let songAnim = {
     on: { y: 50, opacity: 0 },
     off: {
@@ -60,6 +76,6 @@ function Song({ song, specificSong, isPlaying, count, isInView, delay }) {
       ) : null}
     </>
   );
-}
+};
 
 export default Song;

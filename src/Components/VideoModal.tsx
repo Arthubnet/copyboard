@@ -1,15 +1,22 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useRef, useEffect, FC } from "react";
 
 import "./video-modal.styles.scss";
 
 import useWindowDimensions from "../Hooks/useWindowDimensions";
-import { ReactComponent as CloseBtn } from "../assets/img/close.svg";
 /* Framer Motion */
 import { motion, AnimatePresence } from "framer-motion";
 
-const VideoModal = ({ modalActive, setModalActive, videos }) => {
+const closeBtn: string = require("../assets/img/close.svg").default;
+
+type Props = {
+  modalActive: boolean;
+  setModalActive: (value: boolean) => void;
+  videos: any;
+};
+
+const VideoModal: FC<Props> = ({ modalActive, setModalActive, videos }) => {
   let { width } = useWindowDimensions();
-  let videoPlayer = useRef(null);
+  let videoPlayer: any = useRef(null);
 
   let onComplete = () => {
     if (modalActive) {
@@ -86,7 +93,6 @@ const VideoModal = ({ modalActive, setModalActive, videos }) => {
               <video
                 ref={videoPlayer}
                 src={videos[0].path}
-                type="video/mp4"
                 controls
                 controlsList="nodownload noplaybackspeed"
               />
@@ -98,7 +104,7 @@ const VideoModal = ({ modalActive, setModalActive, videos }) => {
               onClick={onClose}
               className="modal-close-btn "
             >
-              <CloseBtn />
+              <img src={closeBtn} alt="close"></img>
             </motion.div>
           </motion.div>
         )}

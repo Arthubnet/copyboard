@@ -1,13 +1,23 @@
-import React, { useRef } from "react";
+import React, { useRef, FC } from "react";
 
 import "./video-item.styles.scss";
 
 /* Icons */
-import prevArrow from "../assets/img/prev-svg.svg";
-import nextArrow from "../assets/img/next-svg.svg";
-import playArrow from "../assets/img/pink-play.svg";
+const prevArrow = require("../assets/img/prev-svg.svg");
+const nextArrow = require("../assets/img/next-svg.svg");
+const playArrow = require("../assets/img/pink-play.svg");
 
-const VideoItem = ({
+type Props = {
+  video: any;
+  videos: any;
+  count: number;
+  onPrev: () => void;
+  onNext: () => void;
+  isPlaying: boolean;
+  onPlay: () => void;
+};
+
+const VideoItem: FC<Props> = ({
   video,
   videos,
   count,
@@ -16,7 +26,7 @@ const VideoItem = ({
   isPlaying,
   onPlay,
 }) => {
-  let videoPlayer = useRef();
+  let videoPlayer: any = useRef();
   let onChangeVid = () => {
     videoPlayer.current.currentTime = 0;
     videoPlayer.current.pause();
@@ -29,7 +39,6 @@ const VideoItem = ({
           ref={videoPlayer}
           src={video.path}
           controlsList="nodownload"
-          type="video/mp4"
           controls
         ></video>
         {count ? (
