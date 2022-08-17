@@ -4,12 +4,12 @@ import Music from "./Music";
 import Video from "./Video";
 import { songsData as songs } from "../data";
 
-export function calculateDuration(songSeconds: number): number {
+export function calculateDuration(songSeconds: number): any {
   let minutes = Math.floor(songSeconds / 60);
   let returnedMinutes = minutes < 10 ? `0${minutes}` : `${minutes}`;
   let seconds = Math.floor(songSeconds % 60);
   let returnedSeconds = seconds < 10 ? `0${seconds}` : `${seconds}`;
-  return parseInt(`${returnedMinutes}:${returnedSeconds}`);
+  return `${returnedMinutes}:${returnedSeconds}`;
 }
 
 const Media = () => {
