@@ -7,12 +7,12 @@ import BandsCard from "../Components/BandsCard";
 
 import { bandsData as bands } from "../data";
 
-import { motion, AnimatePresence, useInView } from "framer-motion";
+import { motion, AnimatePresence, useInView, Variants } from "framer-motion";
 
 function Bands() {
-  let [count, setCount] = useState(1);
+  let [count, setCount] = useState<number>(1);
   let ref = useRef(null);
-  let isInView = useInView(ref, { once: true });
+  let isInView: any = useInView(ref, { once: true });
 
   /* Framer motion */
   useEffect(() => {
@@ -29,7 +29,7 @@ function Bands() {
       },
     },
   };
-  let widthAnim = {
+  let widthAnim: Variants = {
     on: { width: `100%` },
     off: {
       width: 0,
@@ -41,7 +41,7 @@ function Bands() {
     },
   };
 
-  let promoOnView = {
+  let promoOnView: Variants = {
     on: { y: 50, opacity: 0 },
     off: {
       y: isInView && 0,
@@ -89,7 +89,7 @@ function Bands() {
           <div className="bands__container__cards">
             {bands
               .filter((a, i) => i > 0)
-              .map((band, i) => (
+              .map((band: any, i) => (
                 <BandsCard
                   band={band}
                   key={band.id}
